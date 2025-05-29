@@ -593,7 +593,7 @@ footer {
     max-width: 150px;
   }
   
-  /* Reduce space between about and lobby sections on mobile */
+  /* Remove space between about and lobby sections on mobile */
   .about {
     padding-bottom: 0;
   }
@@ -602,8 +602,16 @@ footer {
     margin-bottom: 0;
   }
   
+  .about-content p:last-child {
+    margin-bottom: 0;
+  }
+  
   .lobby {
     margin-top: 0;
+    padding-top: 0;
+  }
+  
+  .lobby .container {
     padding-top: 0.5rem;
   }
 }
