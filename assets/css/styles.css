@@ -223,7 +223,8 @@ nav ul li a:hover {
 
 /* Lobby Section */
 .lobby {
-  padding: 2rem 0;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
   background-color: var(--secondary-color);
 }
 
