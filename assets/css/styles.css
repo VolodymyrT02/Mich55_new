@@ -614,4 +614,20 @@ footer {
   .lobby .container {
     padding-top: 0.5rem;
   }
+  
+  /* Fix hero image proportions on mobile */
+  .hero {
+    height: auto;
+    aspect-ratio: 1/1;
+    margin-top: 80px;
+  }
+  
+  .hero-slider {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .hero-slider img {
+    object-fit: contain;
+  }
 }
