@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique Apartments Kyiv - ID GROUP</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/lightbox.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        
+        <div class="logo-container">
+            <div class="logo">
+                <img src="assets/images/logo/logo2.jpg" alt="ID GROUP KYIV CITY">
+            </div>
+            <div class="brand-signature">
+                <span>PREMIUM REAL ESTATE</span>
+                <span>BROKERAGE & INVESTING</span>
+            </div>
+        </div>
+        
+        <div class="language-switcher">
+            <button id="lang-switch" data-lang="en">ENG</button>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="#home" data-i18n="nav_home">Головна</a></li>
+                <li><a href="#about" data-i18n="nav_about">Про комплекс</a></li>
+                <li><a href="#apartments" data-i18n="nav_apartments">Квартири</a></li>
+                <li><a href="#location" data-i18n="nav_location">Розташування</a></li>
+                <li><a href="#contacts" data-i18n="nav_contacts">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-slider">
+            <!-- Images will be loaded via JavaScript -->
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-title">
+                <h1 data-i18n="building_name">BOUTIQUE APARTMENTS KYIV</h1>
+                <p class="slogan" data-i18n="building_slogan">Ваш краєвид, ваше натхнення</p>
+                <h2 data-i18n="building_address">вулиця Ломаківська / Мічуріна, 55, Печерський район, м. Київ</h2>
+                <p data-i18n="building_status">Здано в експлуатацію лютий 2025р.</p>
+            </div>
+            <div class="about-content">
+                <p data-i18n="about_text_1">6 резиденцій на Печерських схилах. Приватність історичного центру з видами на Києво-Печерську Лавру та Ботанічний сад.</p>
+                <p data-i18n="about_text_2">Ексклюзивна локація для тих, хто цінує автентичність та незалежність. Поєднання культурної спадщини з сучасним комфортом у серці історичного району.</p>
+                <p data-i18n="about_text_3">Всі апартаменти з документами на право власності.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="lobby">
+        <div class="container">
+            <h2 data-i18n="lobby_title">Лобі</h2>
+            <div class="lobby-gallery">
+                <!-- Images will be loaded via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section class="video">
+        <div class="container">
+            <h2 data-i18n="video_title">Відео</h2>
+            <div class="video-container">
+                <video id="main-video" controls>
+                    <source src="assets/videos/video1.mp4" type="video/mp4">
+                    Ваш браузер не підтримує відео.
+                </video>
+                <button id="fullscreen-btn" class="fullscreen-button">
+                    <i class="fas fa-expand"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="technology">
+        <div class="container">
+            <h2 data-i18n="technology_title">ТЕХНОЛОГІЇ</h2>
+            <div class="technology-content">
+                <div class="tech-section">
+                    <h3 data-i18n="tech_section_1_title">Інженерні системи преміум-класу:</h3>
+                    <p data-i18n="tech_section_1_text_1">Індивідуальні теплові насоси для кожної резиденції забезпечують енергоефективність та автономність. Незалежні системи опалення, кондиціонування, вентиляції та гарячого водопостачання.</p>
+                    <p data-i18n="tech_section_1_text_2">Централізована система водопідготовки та фільтрації Ecosoft.</p>
+                </div>
+                <div class="tech-section">
+                    <h3 data-i18n="tech_section_2_title">Матеріали та конструкції:</h3>
+                    <p data-i18n="tech_section_2_text_1">Вентильований фасад з широкоформатними керамогранітними панелями. Утеплення кашированою базальтовою ватою для максимального збереження тепла.</p>
+                    <p data-i18n="tech_section_2_text_2">Зовнішні та внутрішні стіни з керамічної цегли Porotherm Wienerberger.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="apartments" class="apartments">
+        <div class="container">
+            <h2 data-i18n="apartments_title">Квартири</h2>
+            <div class="apartment-tabs">
+                <button class="tab-btn active" data-apartment="1" data-i18n="apartment_1_tab">Резиденція №1</button>
+                <button class="tab-btn" data-apartment="2" data-i18n="apartment_2_tab">Резиденція №2</button>
+                <button class="tab-btn" data-apartment="3" data-i18n="apartment_3_tab">Резиденція №3</button>
+            </div>
+            <div class="apartment-content">
+                <div class="apartment-gallery">
+                    <div class="apartment-image">
+                        <img src="assets/images/apartments/apartment1.jpg" alt="Apartment 1" data-apartment="1" class="active">
+                        <img src="assets/images/apartments/apartment2.jpg" alt="Apartment 2" data-apartment="2">
+                        <img src="assets/images/apartments/apartment3.jpg" alt="Apartment 3" data-apartment="3">
+                    </div>
+                </div>
+                
+                <!-- Apartment 1 -->
+                <div class="apartment-details active" data-apartment="1">
+                    <div class="apartment-plans">
+                        <h4 data-i18n="apartments_apartments_plans_title">Плани квартири</h4>
+                        <div class="horizontal-gallery">
+                            <div class="gallery-item">
+                                <img src="assets/images/plans/apartment1.jpg" alt="Apartment 1 Plan">
+                                <p data-i18n="apartments_apartment1_plan_caption">План квартири</p>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="assets/images/elevator/10.JPEG" alt="Elevator Hall">
+                                <p data-i18n="apartments_elevator_hall_caption">Ліфтовий хол</p>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="assets/images/elevator/10.JPEG" alt="Elevator Hall">
+                                <p data-i18n="apartments_elevator_hall_caption">Ліфтовий хол</p>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="assets/images/elevator/10.JPEG" alt="Elevator Hall">
+                                <p data-i18n="apartments_elevator_hall_caption">Ліфтовий хол</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 data-i18n="apartments_apartment1_title">РЕЗИДЕНЦІЯ №1 (1-й поверх)</h3>
+                    <p data-i18n="apartments_apartment1_status">Здано в експлуатацію лютий 2025р.</p>
+                    <ul>
+                        <li data-i18n="apartments_apartment1_legal_area">Юридична площа: 211,7 м²</li>
+                        <li data-i18n="apartments_apartment1_actual_area">Фактично: 189,5 м² внутрішня площа + 74 м² тераса з зеленою зоною</li>
+                        <li data-i18n="apartments_apartment1_view">Вид: Києво-Печерська Лавра, Батьківщина-Мати</li>
+                        <li data-i18n="apartments_apartment1_price">Вартість: 1 100 000 $</li>
+                        <li data-i18n="apartments_apartment1_included">Включено: 2 паркомісця + кладова</li>
+                    </ul>
+                </div>
+                
+                <!-- Apartment 2 -->
+                <div class="apartment-details" data-apartment="2">
+                    <div class="apartment-plans">
+                        <h4 data-i18n="apartments_apartments_plans_title">Плани квартири</h4>
+                        <div class="horizontal-gallery">
+                            <div class="gallery-item">
+                                <img src="assets/images/plans/apartment2.jpg" alt="Apartment 2 Plan">
+                                <p data-i18n="apartments_apartment2_plan_caption">План квартири</p>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="assets/images/elevator/11.JPEG" alt="Elevator Hall">
+                                <p data-i18n="apartments_elevator_hall_caption">Ліфтовий хол</p>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="assets/images/elevator/11.JPEG" alt="Elevator Hall">
+                                <p data-i18n="apartments_elevator_hall_caption">Ліфтовий хол</p>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="assets/images/elevator/11.JPEG" alt="Elevator Hall">
+                                <p data-i18n="apartments_elevator_hall_caption">Ліфтовий хол</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 data-i18n="apartments_apartment2_title">РЕЗИДЕНЦІЯ №2 (2-й поверх)</h3>
+                    <p data-i18n="apartments_apartment2_status">Здано в експлуатацію лютий 2025р.</p>
+                    <ul>
+                        <li data-i18n="apartments_apartment2_legal_area">Юридична площа: 237 м²</li>
+                        <li data-i18n="apartments_apartment2_actual_area">Фактично: 227 м² внутрішня площа + 33,3 м² тераса</li>
+                        <li data-i18n="apartments_apartment2_view">Вид: Батьківщина-Мати, Києво-Печерська Лавра</li>
+                        <li data-i18n="apartments_apartment2_price">Вартість: 1 185 000 $</li>
+                        <li data-i18n="apartments_apartment2_included">Включено: 2 паркомісця + кладова</li>
+                    </ul>
+                </div>
+                
+                <!-- Apartment 3 -->
+                <div class="apartment-details" data-apartment="3">
+                    <div class="apartment-plans">
+                        <h4 data-i18n="apartments_apartments_plans_title">Плани квартири</h4>
+                        <div class="horizontal-gallery">
+                            <div class="gallery-item">
+                                <img src="assets/images/plans/apartment3.jpg" alt="Apartment 3 Plan">
+                                <p data-i18n="apartments_apartment3_plan_caption">План квартири</p>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="assets/images/plans/apartment3_terrace.jpg" alt="Apartment 3 Terrace Plan">
+                                <p data-i18n="apartments_apartment3_terrace_plan_caption">План тераси</p>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="assets/images/elevator/12.JPEG" alt="Elevator Hall">
+                                <p data-i18n="apartments_elevator_hall_caption">Ліфтовий хол</p>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="assets/images/elevator/12.JPEG" alt="Elevator Hall">
+                                <p data-i18n="apartments_elevator_hall_caption">Ліфтовий хол</p>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="assets/images/elevator/12.JPEG" alt="Elevator Hall">
+                                <p data-i18n="apartments_elevator_hall_caption">Ліфтовий хол</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 data-i18n="apartments_apartment3_title">РЕЗИДЕНЦІЯ №3 (3-й поверх)</h3>
+                    <p data-i18n="apartments_apartment3_status">Здано в експлуатацію лютий 2025р.</p>
+                    <ul>
+                        <li data-i18n="apartments_apartment3_legal_area">Юридична площа: 238,2 м²</li>
+                        <li data-i18n="apartments_apartment3_actual_area">Фактично: 204 м² внутрішня площа + 30 м² балкони + 84 м² панорамна тераса на покрівлі</li>
+                        <li data-i18n="apartments_apartment3_view">Вид: Ботанічний сад + панорама міста з покрівлі</li>
+                        <li data-i18n="apartments_apartment3_price">Вартість: 1 085 000 $</li>
+                        <li data-i18n="apartments_apartment3_included">Включено: 2 паркомісця + кладова</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="location">
+        <div class="container">
+            <h2 data-i18n="location_title">Розташування</h2>
+            <div class="map-container" id="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.7222285378507!2d30.54701287678437!3d50.44079997159774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cfa04a0c8e5b%3A0x3b31d1973ec8bea8!2z0YPQuy4g0JvQvtC80LDQutC-0LLRgdC60LDRjywgNTUsINCa0LjQtdCyLCAwMjAwMA!5e0!3m2!1sru!2sua!4v1716990994793!5m2!1sru!2sua" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="contacts">
+        <div class="container">
+            <h2 data-i18n="contacts_title">Контакти</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+380443907979">+38 (044) 390 79 79</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-telegram"></i>
+                    <span>Телеграм-бот: </span>
+                    <a href="https://t.me/IDGroup_Kyiv_city_bot" data-i18n="telegram_link">IDGroup Kyiv</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <i class="fab fa-telegram" style="margin-left: 5px;"></i>
+                    <a href="https://wa.me/380934347042">+380 (93) 434 70 42</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-share-alt"></i>
+                    <div class="social-icons">
+                        <!-- Social icons will be added later -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/logo/logo2.jpg" alt="ID GROUP KYIV CITY">
+                </div>
+                <div class="footer-info">
+                    <p data-i18n="footer_copyright">Всі права захищені.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/map.js"></script>
+    <script src="assets/js/video.js"></script>
+    <script src="assets/js/contacts.js"></script>
+    <script src="assets/js/lightbox.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=initMap" async defer></script>
+</body>
+</html>

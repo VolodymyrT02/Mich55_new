@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель - Boutique Apartments Kyiv</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Админ-панель Boutique Apartments Kyiv</h1>
+        
+        <!-- Login Form -->
+        <div id="admin-login-form" class="admin-login-form">
+            <form id="login-form">
+                <div class="admin-form-group">
+                    <label for="admin-username">Имя пользователя:</label>
+                    <input type="text" id="admin-username" required>
+                </div>
+                <div class="admin-form-group">
+                    <label for="admin-password">Пароль:</label>
+                    <input type="password" id="admin-password" required>
+                </div>
+                <button type="submit" class="admin-button">Войти</button>
+            </form>
+        </div>
+        
+        <!-- Admin Content -->
+        <div id="admin-content" class="admin-content" style="display: none;">
+            <div class="admin-section">
+                <h2>Управление видимостью квартир</h2>
+                <p>Отметьте квартиры, которые должны отображаться на сайте:</p>
+                <div id="apartment-list">
+                    <div class="apartment-item">
+                        <input type="checkbox" id="apartment1" checked>
+                        <label for="apartment1">Резиденция №1 (1-й этаж)</label>
+                    </div>
+                    <div class="apartment-item">
+                        <input type="checkbox" id="apartment2" checked>
+                        <label for="apartment2">Резиденция №2 (2-й этаж)</label>
+                    </div>
+                    <div class="apartment-item">
+                        <input type="checkbox" id="apartment3" checked>
+                        <label for="apartment3">Резиденция №3 (3-й этаж)</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="admin-section">
+                <h2>Редактирование текстов</h2>
+                <div class="text-editor">
+                    <div class="language-tabs">
+                        <button class="lang-tab active" data-lang="uk">Украинский</button>
+                        <button class="lang-tab" data-lang="en">Английский</button>
+                    </div>
+                    
+                    <div class="editor-sections">
+                        <div class="editor-section">
+                            <h3>Заголовок и слоган</h3>
+                            <div class="form-group">
+                                <label for="building-name">Название:</label>
+                                <input type="text" id="building-name" value="BOUTIQUE APARTMENTS KYIV">
+                            </div>
+                            <div class="form-group">
+                                <label for="building-slogan">Слоган:</label>
+                                <input type="text" id="building-slogan" value="Ваш краєвид, ваше натхнення">
+                            </div>
+                            <div class="form-group">
+                                <label for="building-address">Адрес:</label>
+                                <input type="text" id="building-address" value="вулиця Ломаківська / Мічуріна, 55, Печерський район, м. Київ">
+                            </div>
+                        </div>
+                        
+                        <div class="editor-section">
+                            <h3>Описание</h3>
+                            <div class="form-group">
+                                <label for="about-text-1">Абзац 1:</label>
+                                <textarea id="about-text-1" rows="3">6 резиденцій на Печерських схилах. Приватність історичного центру з видами на Києво-Печерську Лавру та Ботанічний сад.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="about-text-2">Абзац 2:</label>
+                                <textarea id="about-text-2" rows="4">Ексклюзивна локація для тих, хто цінує автентичність та незалежність. Поєднання культурної спадщини з сучасним комфортом у серці історичного району.</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="admin-section">
+                <h2>Управление медиафайлами</h2>
+                <div class="media-manager">
+                    <div class="media-category">
+                        <h3>Фото фасада</h3>
+                        <div class="media-items">
+                            <div class="media-item">
+                                <img src="assets/images/facade/Michurina1.JPEG" alt="Фасад 1">
+                                <div class="media-actions">
+                                    <button class="replace-btn">Заменить</button>
+                                    <button class="delete-btn">Удалить</button>
+                                </div>
+                            </div>
+                            <div class="media-item">
+                                <img src="assets/images/facade/Michurina2.JPEG" alt="Фасад 2">
+                                <div class="media-actions">
+                                    <button class="replace-btn">Заменить</button>
+                                    <button class="delete-btn">Удалить</button>
+                                </div>
+                            </div>
+                            <div class="media-item add-new">
+                                <div class="add-placeholder">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Добавить фото</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="media-category">
+                        <h3>Планы квартир</h3>
+                        <div class="media-items">
+                            <div class="media-item">
+                                <img src="assets/images/plans/apartment1.jpg" alt="План квартиры 1">
+                                <div class="media-actions">
+                                    <button class="replace-btn">Заменить</button>
+                                    <button class="delete-btn">Удалить</button>
+                                </div>
+                            </div>
+                            <div class="media-item">
+                                <img src="assets/images/plans/apartment2.jpg" alt="План квартиры 2">
+                                <div class="media-actions">
+                                    <button class="replace-btn">Заменить</button>
+                                    <button class="delete-btn">Удалить</button>
+                                </div>
+                            </div>
+                            <div class="media-item add-new">
+                                <div class="add-placeholder">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Добавить план</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="admin-actions">
+                <button id="save-changes" class="admin-button primary">Сохранить изменения</button>
+                <button id="admin-logout" class="admin-button secondary">Выйти</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/admin.js"></script>
+</body>
+</html>
