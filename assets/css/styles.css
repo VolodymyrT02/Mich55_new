@@ -226,6 +226,7 @@ nav ul li a:hover {
   padding-top: 1rem;
   padding-bottom: 2rem;
   background-color: var(--secondary-color);
+  margin-top: -1rem;
 }
 
 .lobby h2 {
@@ -590,5 +591,19 @@ footer {
   .brand-signature {
     font-size: 0.7rem;
     max-width: 150px;
+  }
+  
+  /* Reduce space between about and lobby sections on mobile */
+  .about {
+    padding-bottom: 0;
+  }
+  
+  .about-content {
+    margin-bottom: 0;
+  }
+  
+  .lobby {
+    margin-top: 0;
+    padding-top: 0.5rem;
   }
 }
