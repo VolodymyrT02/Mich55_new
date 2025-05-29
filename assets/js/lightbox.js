@@ -21,9 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const prev = document.querySelector('.prev');
     const next = document.querySelector('.next');
 
-    // Convert plan galleries to horizontal galleries with lightbox
-    convertToHorizontalGalleries();
-
     // Add lightbox to lobby gallery
     addLightboxToGallery('.lobby-gallery img');
 
@@ -32,6 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add lightbox to apartment images
     addLightboxToGallery('.apartment-image img');
+
+    // Add lightbox to horizontal galleries
+    document.querySelectorAll('.horizontal-gallery').forEach(gallery => {
+        addLightboxToGallery(gallery.querySelectorAll('img'), true);
+    });
 
     // Add lightbox to videos
     addLightboxToVideos();
@@ -84,45 +86,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Function to convert plan galleries to horizontal galleries
-    function convertToHorizontalGalleries() {
-        const planGalleries = document.querySelectorAll('.plan-gallery');
-        
-        planGalleries.forEach(gallery => {
-            // Create horizontal gallery
-            const horizontalGallery = document.createElement('div');
-            horizontalGallery.className = 'horizontal-gallery';
-            
-            // Get all plan items
-            const planItems = gallery.querySelectorAll('.plan-item');
-            
-            // Move items to horizontal gallery
-            planItems.forEach(item => {
-                const galleryItem = document.createElement('div');
-                galleryItem.className = 'gallery-item';
-                
-                const img = item.querySelector('img');
-                const caption = item.querySelector('p');
-                
-                galleryItem.appendChild(img.cloneNode(true));
-                if (caption) {
-                    galleryItem.appendChild(caption.cloneNode(true));
-                }
-                
-                horizontalGallery.appendChild(galleryItem);
-            });
-            
-            // Replace original gallery with horizontal gallery
-            gallery.parentNode.replaceChild(horizontalGallery, gallery);
-            
-            // Add lightbox to new gallery items
-            const galleryImages = horizontalGallery.querySelectorAll('img');
-            addLightboxToGallery(galleryImages);
-        });
-    }
-
     // Function to add lightbox to gallery images
-    function addLightboxToGallery(selector) {
+    function addLightboxToGallery(selector, isolateGallery = false) {
         const images = typeof selector === 'string' ? document.querySelectorAll(selector) : selector;
         
         images.forEach(img => {
@@ -130,7 +95,9 @@ document.addEventListener('DOMContentLoaded', function() {
             img.addEventListener('click', function() {
                 // Find all images in the same gallery
                 let galleryImages;
-                if (this.closest('.horizontal-gallery')) {
+                
+                if (isolateGallery && this.closest('.horizontal-gallery')) {
+                    // For horizontal galleries, only include images from the same apartment's gallery
                     galleryImages = this.closest('.horizontal-gallery').querySelectorAll('img');
                 } else if (this.closest('.lobby-gallery')) {
                     galleryImages = document.querySelectorAll('.lobby-gallery img');

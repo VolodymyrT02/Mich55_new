@@ -516,6 +516,11 @@ footer {
   font-size: 0.9rem;
 }
 
+/* Remove Manus badge */
+.manus-badge {
+  display: none !important;
+}
+
 /* Media Queries */
 @media (min-width: 768px) {
   .menu-toggle {
@@ -538,6 +543,12 @@ footer {
   
   nav ul li {
     margin: 0 1rem;
+  }
+  
+  /* Fix contact menu alignment in desktop */
+  nav ul {
+    justify-content: center;
+    width: 100%;
   }
 }
 
@@ -562,7 +573,21 @@ footer {
     height: 300px;
   }
   
+  /* Fix logo position in mobile */
   .logo-container {
-    margin-left: -50px;
+    margin-left: 0;
+    max-width: 60%;
+  }
+  
+  /* Fix language switcher position in mobile */
+  .language-switcher {
+    right: 1rem;
+    z-index: 1002;
+  }
+  
+  /* Ensure brand signature doesn't overlap with language switcher */
+  .brand-signature {
+    font-size: 0.7rem;
+    max-width: 150px;
   }
 }
