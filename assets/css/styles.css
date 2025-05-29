@@ -75,8 +75,10 @@ header {
 .logo-container {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  flex-grow: 0;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .logo {
@@ -99,10 +101,8 @@ header {
 }
 
 .language-switcher {
-  position: absolute;
-  right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
+  right: 0;
 }
 
 .language-switcher button {
@@ -575,14 +575,7 @@ footer {
   
   /* Fix logo position in mobile */
   .logo-container {
-    margin-left: 0;
     max-width: 60%;
-  }
-  
-  /* Fix language switcher position in mobile */
-  .language-switcher {
-    right: 1rem;
-    z-index: 1002;
   }
   
   /* Ensure brand signature doesn't overlap with language switcher */
