@@ -619,7 +619,7 @@ footer {
   .hero {
     height: auto;
     aspect-ratio: 1/1;
-    margin-top: 80px;
+    margin-top: 0; /* Remove white space between header and hero */
   }
   
   .hero-slider {
@@ -628,6 +628,19 @@ footer {
   }
   
   .hero-slider img {
-    object-fit: contain;
+    object-fit: cover; /* Changed from contain to cover for better performance */
+    will-change: opacity; /* Optimize for animation */
+    transform: translateZ(0); /* Hardware acceleration */
+  }
+  
+  /* Reduce space between hero and about section by 70% */
+  .about {
+    padding-top: 0.6rem; /* Reduced from 2rem by 70% */
+  }
+  
+  /* Fix header to ensure no gap with hero section */
+  header {
+    position: relative; /* Changed from fixed to remove gap */
+    margin-bottom: 0;
   }
 }
