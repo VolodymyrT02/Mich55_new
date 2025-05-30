@@ -189,12 +189,12 @@ nav ul li a:hover {
 
 /* About Section */
 .about {
-  padding: 2rem 0;
+  padding: 0.2rem 0;
 }
 
 .about-title {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 0.2rem;
 }
 
 .about-title h1 {
@@ -227,15 +227,15 @@ nav ul li a:hover {
 
 /* Lobby Section */
 .lobby {
-  padding-top: 1rem;
-  padding-bottom: 2rem;
+  padding-top: 0.1rem;
+  padding-bottom: 0.2rem;
   background-color: var(--secondary-color);
   margin-top: -1rem;
 }
 
 .lobby h2 {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 0.2rem;
   color: var(--primary-color);
 }
 
@@ -330,19 +330,19 @@ nav ul li a:hover {
 
 /* Apartments Section */
 .apartments {
-  padding: 2rem 0;
+  padding: 0.2rem 0;
 }
 
 .apartments h2 {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 0.2rem;
   color: var(--primary-color);
 }
 
 .apartment-tabs {
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 0.2rem;
   flex-wrap: wrap;
 }
 
@@ -438,13 +438,13 @@ nav ul li a:hover {
 
 /* Location Section */
 .location {
-  padding: 2rem 0;
+  padding: 0.2rem 0;
   background-color: var(--secondary-color);
 }
 
 .location h2 {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 0.2rem;
   color: var(--primary-color);
 }
 
@@ -456,12 +456,12 @@ nav ul li a:hover {
 
 /* Contacts Section */
 .contacts {
-  padding: 2rem 0;
+  padding: 0.2rem 0;
 }
 
 .contacts h2 {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 0.2rem;
   color: var(--primary-color);
 }
 
