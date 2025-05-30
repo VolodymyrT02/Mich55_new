@@ -1,7 +1,9 @@
 // Main JavaScript for the landing page
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize language
-    const currentLang = localStorage.getItem('lang') || 'uk';
+    // Force clear localStorage language setting to ensure Ukrainian is default
+    localStorage.removeItem('lang');
+    // Initialize language - always default to Ukrainian
+    const currentLang = 'uk';
     setLanguage(currentLang);
     
     // Language switcher
