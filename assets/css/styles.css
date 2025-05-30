@@ -273,11 +273,15 @@ nav ul li a:hover {
   max-width: 800px;
   margin: 0 auto;
   position: relative;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 5px;
 }
 
 .video-container video {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 

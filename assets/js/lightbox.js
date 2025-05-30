@@ -50,9 +50,11 @@ document.addEventListener('DOMContentLoaded', function() {
     addLightboxToVideos();
 
     // Close lightbox when clicking on X
-    close.addEventListener('click', function() {
+    close.addEventListener('click', function(e) {
+        e.stopPropagation();
         lightbox.style.display = 'none';
         lightboxVideo.pause();
+        lightboxVideo.currentTime = 0;
         lightboxVideo.style.display = 'none';
         lightboxImg.style.display = 'block';
     });
@@ -62,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.target === lightbox) {
             lightbox.style.display = 'none';
             lightboxVideo.pause();
+            lightboxVideo.currentTime = 0;
             lightboxVideo.style.display = 'none';
             lightboxImg.style.display = 'block';
         }
@@ -172,6 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Add play button
             const playButton = document.createElement('div');
+            playButton.className = 'video-play-button';
             playButton.innerHTML = '▶';
             playButton.style.fontSize = '48px';
             playButton.style.color = 'white';
@@ -180,8 +184,38 @@ document.addEventListener('DOMContentLoaded', function() {
             video.parentNode.style.position = 'relative';
             video.parentNode.appendChild(thumbnail);
             
+            // Handle direct video play on desktop and mobile
+            video.addEventListener('play', function() {
+                thumbnail.style.display = 'none';
+            });
+            
+            video.addEventListener('pause', function() {
+                thumbnail.style.display = 'flex';
+            });
+            
+            video.addEventListener('ended', function() {
+                thumbnail.style.display = 'flex';
+            });
+            
+            // Add click event to video for toggling play/pause
+            video.addEventListener('click', function() {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+            
             // Open video in lightbox on click
             thumbnail.addEventListener('click', function() {
+                // For direct play on the page
+                if (!event.ctrlKey && !event.metaKey) {
+                    thumbnail.style.display = 'none';
+                    video.play();
+                    return;
+                }
+                
+                // For lightbox play (with Ctrl/Cmd key)
                 lightboxImg.style.display = 'none';
                 lightboxVideo.style.display = 'block';
                 lightboxVideo.src = video.src;
@@ -192,6 +226,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentGallery = [video];
                 currentIndex = 0;
             });
+            
+            // Add fullscreen button functionality
+            const fullscreenBtn = video.parentNode.querySelector('.fullscreen-button');
+            if (fullscreenBtn) {
+                fullscreenBtn.addEventListener('click', function() {
+                    lightboxImg.style.display = 'none';
+                    lightboxVideo.style.display = 'block';
+                    lightboxVideo.src = video.src;
+                    lightbox.style.display = 'block';
+                    lightboxVideo.play();
+                    
+                    // Set current gallery to just this video
+                    currentGallery = [video];
+                    currentIndex = 0;
+                });
+            }
         });
     }
 
@@ -201,12 +251,81 @@ document.addEventListener('DOMContentLoaded', function() {
             lightboxImg.style.display = 'none';
             lightboxVideo.style.display = 'block';
             lightboxVideo.src = element.src;
+            lightboxVideo.controls = true;
             lightboxVideo.play();
+            
+            // Add custom controls if needed
+            const videoControls = document.createElement('div');
+            videoControls.className = 'video-controls';
+            videoControls.style.position = 'absolute';
+            videoControls.style.bottom = '20px';
+            videoControls.style.left = '50%';
+            videoControls.style.transform = 'translateX(-50%)';
+            videoControls.style.zIndex = '1010';
+            videoControls.style.display = 'flex';
+            videoControls.style.gap = '10px';
+            
+            // Pause/Play button
+            const pausePlayBtn = document.createElement('button');
+            pausePlayBtn.innerHTML = '⏸️';
+            pausePlayBtn.style.background = 'rgba(0,0,0,0.5)';
+            pausePlayBtn.style.color = 'white';
+            pausePlayBtn.style.border = 'none';
+            pausePlayBtn.style.borderRadius = '50%';
+            pausePlayBtn.style.width = '40px';
+            pausePlayBtn.style.height = '40px';
+            pausePlayBtn.style.cursor = 'pointer';
+            
+            pausePlayBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (lightboxVideo.paused) {
+                    lightboxVideo.play();
+                    pausePlayBtn.innerHTML = '⏸️';
+                } else {
+                    lightboxVideo.pause();
+                    pausePlayBtn.innerHTML = '▶️';
+                }
+            });
+            
+            // Stop button
+            const stopBtn = document.createElement('button');
+            stopBtn.innerHTML = '⏹️';
+            stopBtn.style.background = 'rgba(0,0,0,0.5)';
+            stopBtn.style.color = 'white';
+            stopBtn.style.border = 'none';
+            stopBtn.style.borderRadius = '50%';
+            stopBtn.style.width = '40px';
+            stopBtn.style.height = '40px';
+            stopBtn.style.cursor = 'pointer';
+            
+            stopBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                lightboxVideo.pause();
+                lightboxVideo.currentTime = 0;
+                pausePlayBtn.innerHTML = '▶️';
+            });
+            
+            videoControls.appendChild(pausePlayBtn);
+            videoControls.appendChild(stopBtn);
+            
+            // Remove any existing controls first
+            const existingControls = document.querySelector('.video-controls');
+            if (existingControls) {
+                existingControls.remove();
+            }
+            
+            document.querySelector('.lightbox-content').appendChild(videoControls);
         } else {
             lightboxVideo.pause();
             lightboxVideo.style.display = 'none';
             lightboxImg.style.display = 'block';
             lightboxImg.src = element.src;
+            
+            // Remove video controls if they exist
+            const existingControls = document.querySelector('.video-controls');
+            if (existingControls) {
+                existingControls.remove();
+            }
         }
     }
 });
