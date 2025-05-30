@@ -132,9 +132,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else if (this.closest('.hero-slider')) {
                     galleryImages = document.querySelectorAll('.hero-slider img');
                 } else if (this.closest('.apartment-image')) {
-                    // For apartment preview images, show the gallery of the active apartment
-                    if (activeApartmentId) {
-                        // Find the active apartment's gallery
+                    // For apartment preview images, show the gallery of the apartment that was clicked
+                    // Get the apartment ID from the clicked image
+                    const clickedApartmentId = this.getAttribute('data-apartment');
+                    
+                    if (clickedApartmentId) {
+                        // Find the apartment's gallery based on the clicked image's apartment ID
+                        const apartmentDetails = document.querySelector(`.apartment-details[data-apartment="${clickedApartmentId}"]`);
+                        if (apartmentDetails && apartmentDetails.querySelector('.horizontal-gallery')) {
+                            galleryImages = apartmentDetails.querySelectorAll('.horizontal-gallery img');
+                        } else {
+                            galleryImages = [this];
+                        }
+                    } else if (activeApartmentId) {
+                        // Fallback to active apartment if clicked image doesn't have data-apartment
                         const activeApartmentDetails = document.querySelector(`.apartment-details[data-apartment="${activeApartmentId}"]`);
                         if (activeApartmentDetails && activeApartmentDetails.querySelector('.horizontal-gallery')) {
                             galleryImages = activeApartmentDetails.querySelectorAll('.horizontal-gallery img');
