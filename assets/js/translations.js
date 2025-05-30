@@ -56,7 +56,7 @@ const translations = {
         apartment_2_tab: "Резиденція №2",
         apartment_3_tab: "Резиденція №3",
         
-        apartments_apartments_plans_title: "Плани квартири",
+        apartments_apartments_plans_title: "План квартири і фото",
         apartments_apartment1_plan_caption: "План квартири",
         apartments_elevator_hall_caption: "Ліфтовий хол",
         apartments_apartment1_title: "РЕЗИДЕНЦІЯ №1 (1-й поверх)",
@@ -149,7 +149,7 @@ const translations = {
         apartment_2_tab: "Residence №2",
         apartment_3_tab: "Residence №3",
         
-        apartments_apartments_plans_title: "Apartment Plans",
+        apartments_apartments_plans_title: "Apartment Plan and Photos",
         apartments_apartment1_plan_caption: "Apartment Plan",
         apartments_elevator_hall_caption: "Elevator Hall",
         apartments_apartment1_title: "RESIDENCE №1 (Ground floor)",
