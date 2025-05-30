@@ -12,9 +12,9 @@ const translations = {
         building_address: "вулиця Ломаківська / Мічуріна, 55, Печерський район, м. Київ",
         building_status: "Здано в експлуатацію лютий 2025р.",
         
-        about_text_1: "6 резиденцій на Печерських схилах. Приватність історичного центру з видами на Києво-Печерську Лавру та Ботанічний сад.",
-        about_text_2: "Ексклюзивна локація для тих, хто цінує автентичність та незалежність. Поєднання культурної спадщини з сучасним комфортом у серці історичного району.",
-        about_text_3: "Всі апартаменти з документами на право власності.",
+        about_text_1: "6 приватних резиденцій на Печерських схилах — камерна колекція житла, де унікальність панорами поєднується з внутрішнім спокоєм. Простір, де кожне вікно — це живе полотно з видами на Києво-Печерську Лавру, куполи храмів та столичну зелень Ботанічного саду.",
+        about_text_2: "Це локація не для всіх. Лише для тих, хто звик жити на своїх умовах, цінує тишу за закритими дверима і вміє бачити суть у деталях. Тут минуле перетікає в сучасність: історичний настрій району — у діалозі з бездоганним рівнем комфорту та приватності.",
+        about_text_3: "Кожен апартамент — з повним пакетом документів на право власності. Житло, що належить лише вам. Без компромісів. Без шуму. Без зайвих очей.",
         
         lobby_title: "Лобі",
         
@@ -82,9 +82,9 @@ const translations = {
         building_address: "Lomakivska / Michurina Street, 55, Pechersk district, Kyiv",
         building_status: "Commissioned February 2025",
         
-        about_text_1: "6 residences on Pechersk slopes. Privacy of the historic centre with views of Kyiv Pechersk Lavra and the Botanical Garden.",
-        about_text_2: "An exclusive location for those who value authenticity and independence. The fusion of cultural heritage with contemporary comfort in the heart of the historic district.",
-        about_text_3: "All apartments come with property ownership documents.",
+        about_text_1: "6 private residences on the slopes of Pechersk — a curated collection of homes where panoramic views meet inner calm. Every window frames a living canvas of the Kyiv-Pechersk Lavra, golden domes, and the verdant expanse of the Botanical Garden.",
+        about_text_2: "This is not a location for everyone. It is for those who live on their own terms, value silence behind closed doors, and appreciate meaning in subtlety. Here, heritage meets modern refinement — the spirit of an historic district in harmony with contemporary comfort and privacy.",
+        about_text_3: "Each apartment comes with full ownership documentation. A residence that is entirely yours. No compromises. No noise. No unwanted eyes.",
         
         lobby_title: "Lobby",
         
