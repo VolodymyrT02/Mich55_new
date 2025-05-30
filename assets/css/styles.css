@@ -210,11 +210,17 @@ nav ul li a:hover {
   text-decoration: underline; /* Added underline */
 }
 
-/* Add line break for mobile portrait only */
+/* Mobile portrait slogan styling - more reliable approach */
 @media (max-width: 767px) and (orientation: portrait) {
-  .about-title .slogan::after {
-    content: "";
+  .about-title .slogan .line-break {
     display: block;
+  }
+}
+
+/* For all other devices, keep slogan in one line */
+@media (min-width: 768px), (orientation: landscape) {
+  .about-title .slogan .line-break {
+    display: inline;
   }
 }
 

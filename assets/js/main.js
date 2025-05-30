@@ -153,12 +153,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const key = element.getAttribute('data-i18n');
             
             if (translations[lang] && translations[lang][key]) {
-                // Special handling for slogan on mobile portrait
-                if (key === 'building_slogan' && window.innerWidth <= 767 && window.innerHeight > window.innerWidth) {
+                // Special handling for slogan with line break for mobile
+                if (key === 'building_slogan') {
                     if (lang === 'uk') {
-                        element.innerHTML = 'Ваш краєвид,<br>ваше натхнення';
+                        element.innerHTML = 'Ваш краєвид,<span class="line-break"></span>ваше натхнення';
                     } else {
-                        element.innerHTML = 'Your landscape,<br>your inspiration';
+                        element.innerHTML = 'Your landscape,<span class="line-break"></span>your inspiration';
                     }
                 } else {
                     // For links, preserve the href attribute
