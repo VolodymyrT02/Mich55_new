@@ -210,20 +210,6 @@ nav ul li a:hover {
   text-decoration: underline; /* Added underline */
 }
 
-/* Mobile portrait slogan styling - more reliable approach */
-@media (max-width: 767px) and (orientation: portrait) {
-  .about-title .slogan .line-break {
-    display: block;
-  }
-}
-
-/* For all other devices, keep slogan in one line */
-@media (min-width: 768px), (orientation: landscape) {
-  .about-title .slogan .line-break {
-    display: inline;
-  }
-}
-
 .about-title h2 {
   font-size: 1.5rem;
   font-weight: normal;

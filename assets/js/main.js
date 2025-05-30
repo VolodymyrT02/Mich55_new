@@ -156,9 +156,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Special handling for slogan with line break for mobile
                 if (key === 'building_slogan') {
                     if (lang === 'uk') {
-                        element.innerHTML = 'Ваш краєвид,<span class="line-break"></span>ваше натхнення';
+                        element.innerHTML = 'Ваш краєвид,<br>ваше натхнення';
                     } else {
-                        element.innerHTML = 'Your landscape,<span class="line-break"></span>your inspiration';
+                        element.innerHTML = 'Your landscape,<br>your inspiration';
                     }
                 } else {
                     // For links, preserve the href attribute
