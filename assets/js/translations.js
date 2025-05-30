@@ -21,12 +21,35 @@ const translations = {
         video_title: "Відео",
         
         technology_title: "ТЕХНОЛОГІЇ",
-        tech_section_1_title: "Інженерні системи преміум-класу:",
-        tech_section_1_text_1: "Індивідуальні теплові насоси для кожної резиденції забезпечують енергоефективність та автономність. Незалежні системи опалення, кондиціонування, вентиляції та гарячого водопостачання.",
-        tech_section_1_text_2: "Централізована система водопідготовки та фільтрації Ecosoft.",
-        tech_section_2_title: "Матеріали та конструкції:",
-        tech_section_2_text_1: "Вентильований фасад з широкоформатними керамогранітними панелями. Утеплення кашированою базальтовою ватою для максимального збереження тепла.",
-        tech_section_2_text_2: "Зовнішні та внутрішні стіни з керамічної цегли Porotherm Wienerberger.",
+        technology_subtitle: "Преміум-інженерія, створена для незалежності",
+        
+        tech_section_1_title: "Індивідуальні теплові насоси",
+        tech_section_1_text: "Автономність кожної резиденції. Енергоефективне опалення, охолодження, вентиляція та гаряча вода — незалежно від центральних систем.",
+        
+        tech_section_2_title: "Централізована система Ecosoft",
+        tech_section_2_text: "Фільтрація та водопідготовка преміум-рівня — гарантована якість питної води у кожному крані.",
+        
+        tech_section_3_title: "Інтелектуальна диспетчеризація",
+        tech_section_3_text: "Керуйте всіма системами в реальному часі — з однієї панелі або зі смартфона.",
+        
+        tech_section_4_title: "Ліфт Schindler",
+        tech_section_4_text: "Плавний хід і прямий доступ до підземного паркінгу — комфорт без компромісів.",
+        
+        tech_divider: "⸻",
+        
+        materials_title: "Матеріали та конструктив",
+        
+        materials_section_1_title: "Монолітна конструкція",
+        materials_section_1_text: "Несучі елементи з армованого залізобетону — міцність, довговічність, надійність.",
+        
+        materials_section_2_title: "Міжколонні стіни з Porotherm",
+        materials_section_2_text: "Керамічна цегла Porotherm Wienerberger — природна термоізоляція, екологічність, тиша.",
+        
+        materials_section_3_title: "Фасад — великоформатний керамограніт",
+        materials_section_3_text: "Вентильована система з базальтовим утепленням та алюмінієвим кашуванням — баланс естетики та ефективності.",
+        
+        materials_section_4_title: "Вікна SCHÜCO AWS 75Si+",
+        materials_section_4_text: "Алюмінієвий профіль, двокамерний склопакет 50 мм SunGuard — максимум світла, мінімум тепловтрат.",
         
         apartments_title: "Квартири",
         apartment_1_tab: "Резиденція №1",
@@ -90,13 +113,36 @@ const translations = {
         
         video_title: "Video",
         
-        technology_title: "TECHNOLOGY",
-        tech_section_1_title: "Premium-class engineering systems:",
-        tech_section_1_text_1: "Individual heat pumps for each residence ensure energy efficiency and autonomy. Independent heating, air conditioning, ventilation, and domestic hot water systems.",
-        tech_section_1_text_2: "Centralised water treatment and filtration system by Ecosoft.",
-        tech_section_2_title: "Materials and construction:",
-        tech_section_2_text_1: "Ventilated façade with large-format ceramic granite panels. Insulation with laminated basalt wool for maximum heat retention.",
-        tech_section_2_text_2: "External and internal walls of Porotherm Wienerberger ceramic brick.",
+        technology_title: "TECHNOLOGIES",
+        technology_subtitle: "Premium-class engineering built for independence",
+        
+        tech_section_1_title: "Individual Heat Pumps",
+        tech_section_1_text: "Energy-efficient heating, cooling, ventilation and hot water — fully autonomous for each residence.",
+        
+        tech_section_2_title: "Ecosoft Water Treatment",
+        tech_section_2_text: "Centralised premium-grade filtration and purification — guaranteed water quality at every tap.",
+        
+        tech_section_3_title: "Smart Control System",
+        tech_section_3_text: "Real-time building management and system monitoring via panel or smartphone.",
+        
+        tech_section_4_title: "Schindler Elevator",
+        tech_section_4_text: "Smooth operation and direct access to underground parking — refined comfort without compromise.",
+        
+        tech_divider: "⸻",
+        
+        materials_title: "Materials and Construction",
+        
+        materials_section_1_title: "Monolithic Structure",
+        materials_section_1_text: "Load-bearing elements made of reinforced concrete — strength, durability and structural reliability.",
+        
+        materials_section_2_title: "Porotherm Brickwork Between Columns",
+        materials_section_2_text: "Porotherm Wienerberger ceramic brick — natural thermal insulation, ecological soundproofing.",
+        
+        materials_section_3_title: "Ventilated Facade",
+        materials_section_3_text: "Large-format ceramic granite panels with basalt wool insulation — energy efficiency with modern expression.",
+        
+        materials_section_4_title: "Windows SCHÜCO AWS 75Si+",
+        materials_section_4_text: "Aluminium profile with 50mm SunGuard double glazing — natural light, thermal control, acoustic comfort.",
         
         apartments_title: "Apartments",
         apartment_1_tab: "Residence №1",
