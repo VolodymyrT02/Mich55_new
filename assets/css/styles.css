@@ -206,6 +206,8 @@ nav ul li a:hover {
   font-style: italic;
   color: var(--accent-color);
   margin-bottom: 0.5rem;
+  font-size: 2em; /* Doubled font size */
+  text-decoration: underline; /* Added underline */
 }
 
 .about-title h2 {
