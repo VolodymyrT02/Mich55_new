@@ -84,7 +84,7 @@ header {
 }
 
 .logo {
-  height: 60px; /* Increased logo height */
+  height: 45px; /* Decreased logo height to fit within header */
   margin-right: 1rem;
   background-color: var(--primary-color);
 }
