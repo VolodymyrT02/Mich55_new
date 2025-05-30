@@ -17,9 +17,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Language switcher
     const langSwitch = document.getElementById('lang-switch');
     langSwitch.addEventListener('click', function() {
-        const newLang = this.getAttribute('data-lang') === 'en' ? 'uk' : 'en';
+        // Get the current language from the button's data attribute
+        const currentLang = this.getAttribute('data-lang');
+        // Toggle language immediately
+        const newLang = currentLang === 'en' ? 'uk' : 'en';
+        // Update button text and data attribute
         this.setAttribute('data-lang', newLang);
         this.textContent = newLang === 'en' ? 'UKR' : 'ENG';
+        // Apply language change
         setLanguage(newLang);
         localStorage.setItem('lang', newLang);
     });
