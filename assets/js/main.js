@@ -6,6 +6,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentLang = 'uk';
     setLanguage(currentLang);
     
+    // Add version parameter to force cache refresh
+    const version = new Date().getTime();
+    document.querySelectorAll('script').forEach(script => {
+        if (script.src && !script.src.includes('?v=')) {
+            script.src = script.src + '?v=' + version;
+        }
+    });
+    
     // Language switcher
     const langSwitch = document.getElementById('lang-switch');
     langSwitch.addEventListener('click', function() {
