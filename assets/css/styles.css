@@ -210,6 +210,14 @@ nav ul li a:hover {
   text-decoration: underline; /* Added underline */
 }
 
+/* Add line break for mobile portrait only */
+@media (max-width: 767px) and (orientation: portrait) {
+  .about-title .slogan::after {
+    content: "";
+    display: block;
+  }
+}
+
 .about-title h2 {
   font-size: 1.5rem;
   font-weight: normal;

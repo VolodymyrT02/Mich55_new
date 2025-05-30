@@ -153,15 +153,29 @@ document.addEventListener('DOMContentLoaded', function() {
             const key = element.getAttribute('data-i18n');
             
             if (translations[lang] && translations[lang][key]) {
-                // For links, preserve the href attribute
-                if (element.tagName === 'A' && element.hasAttribute('href')) {
-                    const href = element.getAttribute('href');
-                    element.textContent = translations[lang][key];
-                    element.setAttribute('href', href);
+                // Special handling for slogan on mobile portrait
+                if (key === 'building_slogan' && window.innerWidth <= 767 && window.innerHeight > window.innerWidth) {
+                    if (lang === 'uk') {
+                        element.innerHTML = 'Ваш краєвид,<br>ваше натхнення';
+                    } else {
+                        element.innerHTML = 'Your landscape,<br>your inspiration';
+                    }
                 } else {
-                    element.textContent = translations[lang][key];
+                    // For links, preserve the href attribute
+                    if (element.tagName === 'A' && element.hasAttribute('href')) {
+                        const href = element.getAttribute('href');
+                        element.textContent = translations[lang][key];
+                        element.setAttribute('href', href);
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
                 }
             }
         });
     }
+    
+    // Check for orientation changes to update slogan formatting
+    window.addEventListener('resize', function() {
+        setLanguage(document.documentElement.lang);
+    });
 });
