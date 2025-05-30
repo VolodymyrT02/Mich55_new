@@ -96,9 +96,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Find all images in the same gallery
                 let galleryImages;
                 
-                if (isolateGallery && this.closest('.horizontal-gallery')) {
-                    // For horizontal galleries, only include images from the same apartment's gallery
-                    galleryImages = this.closest('.horizontal-gallery').querySelectorAll('img');
+                if (this.closest('.horizontal-gallery')) {
+                    // For apartment galleries, strictly isolate to the active apartment only
+                    const activeApartment = this.closest('.apartment-details');
+                    if (activeApartment && activeApartment.classList.contains('active')) {
+                        // Only include images from this specific apartment's gallery
+                        galleryImages = activeApartment.querySelectorAll('.horizontal-gallery img');
+                    } else {
+                        galleryImages = this.closest('.horizontal-gallery').querySelectorAll('img');
+                    }
                 } else if (this.closest('.lobby-gallery')) {
                     galleryImages = document.querySelectorAll('.lobby-gallery img');
                 } else if (this.closest('.hero-slider')) {
