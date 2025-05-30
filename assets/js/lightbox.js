@@ -132,9 +132,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else if (this.closest('.hero-slider')) {
                     galleryImages = document.querySelectorAll('.hero-slider img');
                 } else if (this.closest('.apartment-image')) {
-                    // For apartment preview images, only show the active one
+                    // For apartment preview images, show the gallery of the active apartment
                     if (activeApartmentId) {
-                        galleryImages = [document.querySelector(`.apartment-image img[data-apartment="${activeApartmentId}"]`)];
+                        // Find the active apartment's gallery
+                        const activeApartmentDetails = document.querySelector(`.apartment-details[data-apartment="${activeApartmentId}"]`);
+                        if (activeApartmentDetails && activeApartmentDetails.querySelector('.horizontal-gallery')) {
+                            galleryImages = activeApartmentDetails.querySelectorAll('.horizontal-gallery img');
+                        } else {
+                            galleryImages = [this];
+                        }
                     } else {
                         galleryImages = [this];
                     }
