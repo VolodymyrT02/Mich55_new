@@ -10,7 +10,13 @@
     <script>
         // Check authentication
         document.addEventListener('DOMContentLoaded', function() {
-            if (sessionStorage.getItem('adminAuthenticated') !== 'true') {
+            // Check multiple storage methods for authentication
+            const isAuthenticated = 
+                sessionStorage.getItem('adminAuthenticated') === 'true' || 
+                localStorage.getItem('adminAuthenticated') === 'true' ||
+                document.cookie.includes('adminAuthenticated=true');
+                
+            if (!isAuthenticated) {
                 window.location.href = 'login.html';
             }
         });

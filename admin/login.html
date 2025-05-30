@@ -152,10 +152,9 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Check if already authenticated
-            if (sessionStorage.getItem('adminAuthenticated') === 'true') {
-                window.location.href = 'index.html';
-            }
+            // Clear any existing authentication to ensure fresh login
+            sessionStorage.removeItem('adminAuthenticated');
+            localStorage.removeItem('adminAuthenticated');
             
             const loginForm = document.getElementById('login-form');
             const errorMessage = document.getElementById('error-message');
@@ -166,19 +165,33 @@
                 const username = document.getElementById('username').value;
                 const password = document.getElementById('password').value;
                 
-                // Check credentials
+                // Check credentials - using exact string comparison
                 if (username === 'idgvta78' && password === 'neKr72&"dT1') {
-                    // Set authentication in session storage
-                    sessionStorage.setItem('adminAuthenticated', 'true');
-                    
-                    // Redirect to admin panel
-                    window.location.href = 'index.html';
+                    // Set authentication in both sessionStorage and localStorage for redundancy
+                    try {
+                        sessionStorage.setItem('adminAuthenticated', 'true');
+                        localStorage.setItem('adminAuthenticated', 'true');
+                        
+                        // Create a cookie as fallback
+                        document.cookie = "adminAuthenticated=true; path=/; max-age=86400";
+                        
+                        // Redirect to admin panel
+                        window.location.href = 'index.html';
+                    } catch (e) {
+                        // If storage fails, try cookie-only approach
+                        document.cookie = "adminAuthenticated=true; path=/; max-age=86400";
+                        alert("Увага: Ваш браузер може блокувати веб-сховище. Спробуйте дозволити cookies для цього сайту.");
+                        window.location.href = 'index.html';
+                    }
                 } else {
                     // Show error message
                     errorMessage.classList.add('show');
                     
                     // Clear password field
                     document.getElementById('password').value = '';
+                    
+                    // Log for debugging (remove in production)
+                    console.log('Login failed. Username: ' + username + ', Password length: ' + password.length);
                 }
             });
         });
