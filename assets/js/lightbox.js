@@ -132,27 +132,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else if (this.closest('.hero-slider')) {
                     galleryImages = document.querySelectorAll('.hero-slider img');
                 } else if (this.closest('.apartment-image')) {
-                    // For apartment preview images, show the gallery of the apartment that was clicked
-                    // Get the apartment ID from the clicked image
+                    // For apartment preview images, ALWAYS use the data-apartment attribute of the clicked image
+                    // to determine which apartment's gallery to show
                     const clickedApartmentId = this.getAttribute('data-apartment');
                     
                     if (clickedApartmentId) {
+                        console.log(`Clicked on apartment image with data-apartment=${clickedApartmentId}`);
                         // Find the apartment's gallery based on the clicked image's apartment ID
                         const apartmentDetails = document.querySelector(`.apartment-details[data-apartment="${clickedApartmentId}"]`);
                         if (apartmentDetails && apartmentDetails.querySelector('.horizontal-gallery')) {
                             galleryImages = apartmentDetails.querySelectorAll('.horizontal-gallery img');
+                            console.log(`Found ${galleryImages.length} images for apartment ${clickedApartmentId}`);
                         } else {
-                            galleryImages = [this];
-                        }
-                    } else if (activeApartmentId) {
-                        // Fallback to active apartment if clicked image doesn't have data-apartment
-                        const activeApartmentDetails = document.querySelector(`.apartment-details[data-apartment="${activeApartmentId}"]`);
-                        if (activeApartmentDetails && activeApartmentDetails.querySelector('.horizontal-gallery')) {
-                            galleryImages = activeApartmentDetails.querySelectorAll('.horizontal-gallery img');
-                        } else {
+                            console.log(`No gallery found for apartment ${clickedApartmentId}, using single image`);
                             galleryImages = [this];
                         }
                     } else {
+                        console.log('Apartment image clicked but no data-apartment attribute found');
                         galleryImages = [this];
                     }
                 } else {
