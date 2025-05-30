@@ -107,31 +107,42 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Find all images in the same gallery
                 let galleryImages;
                 
-                if (this.hasAttribute('data-apartment-id')) {
-                    // For apartment galleries, strictly isolate by apartment ID
-                    const apartmentId = this.getAttribute('data-apartment-id');
-                    galleryImages = document.querySelectorAll(`img[data-apartment-id="${apartmentId}"]`);
-                } else if (this.closest('.horizontal-gallery')) {
-                    // Fallback for horizontal galleries without apartment ID
+                // Get the active apartment ID
+                let activeApartmentId;
+                if (this.hasAttribute('data-apartment')) {
+                    activeApartmentId = this.getAttribute('data-apartment');
+                } else if (this.closest('.apartment-details')) {
+                    activeApartmentId = this.closest('.apartment-details').getAttribute('data-apartment');
+                }
+                
+                if (this.closest('.horizontal-gallery')) {
+                    // For horizontal galleries, strictly isolate by apartment
                     const activeApartment = this.closest('.apartment-details');
                     if (activeApartment) {
+                        // Only get images from this specific apartment's gallery
                         galleryImages = activeApartment.querySelectorAll('.horizontal-gallery img');
                     } else {
-                        galleryImages = this.closest('.horizontal-gallery').querySelectorAll('img');
+                        galleryImages = [this]; // Fallback to single image
                     }
                 } else if (this.closest('.lobby-gallery')) {
                     galleryImages = document.querySelectorAll('.lobby-gallery img');
                 } else if (this.closest('.hero-slider')) {
                     galleryImages = document.querySelectorAll('.hero-slider img');
                 } else if (this.closest('.apartment-image')) {
-                    galleryImages = document.querySelectorAll('.apartment-image img');
+                    // For apartment preview images, only show the active one
+                    if (activeApartmentId) {
+                        galleryImages = [document.querySelector(`.apartment-image img[data-apartment="${activeApartmentId}"]`)];
+                    } else {
+                        galleryImages = [this];
+                    }
                 } else {
                     galleryImages = [this];
                 }
                 
                 // Set current gallery and index
-                currentGallery = Array.from(galleryImages);
+                currentGallery = Array.from(galleryImages).filter(img => img !== null);
                 currentIndex = currentGallery.indexOf(this);
+                if (currentIndex === -1) currentIndex = 0;
                 
                 // Show lightbox with clicked image
                 updateLightboxContent(this);

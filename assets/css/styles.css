@@ -300,13 +300,13 @@ nav ul li a:hover {
 
 /* Technology Section */
 .technology {
-  padding: 2rem 0;
+  padding: 0.2rem 0; /* Reduced padding by 90% from 2rem to 0.2rem */
   background-color: var(--secondary-color);
 }
 
 .technology h2 {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 0.2rem; /* Reduced margin by 90% from 2rem to 0.2rem */
   color: var(--primary-color);
 }
 
@@ -316,12 +316,12 @@ nav ul li a:hover {
 }
 
 .tech-section {
-  margin-bottom: 2rem;
+  margin-bottom: 0.2rem; /* Reduced margin by 90% from 2rem to 0.2rem */
 }
 
 .tech-section h3 {
   color: var(--primary-color);
-  margin-bottom: 1rem;
+  margin-bottom: 0.1rem; /* Reduced margin by 90% from 1rem to 0.1rem */
 }
 
 /* Apartments Section */
