@@ -30,9 +30,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add lightbox to apartment images
     addLightboxToGallery('.apartment-image img');
 
-    // Add lightbox to horizontal galleries
-    document.querySelectorAll('.horizontal-gallery').forEach(gallery => {
-        addLightboxToGallery(gallery.querySelectorAll('img'), true);
+    // Add lightbox to horizontal galleries with apartment isolation
+    document.querySelectorAll('.apartment-details').forEach(apartmentDetail => {
+        if (apartmentDetail.querySelector('.horizontal-gallery')) {
+            const apartmentId = apartmentDetail.getAttribute('data-apartment');
+            const galleryImages = apartmentDetail.querySelectorAll('.horizontal-gallery img');
+            
+            // Add data attribute to identify which apartment each image belongs to
+            galleryImages.forEach(img => {
+                img.setAttribute('data-apartment-id', apartmentId);
+            });
+            
+            // Add lightbox with strict isolation
+            addLightboxToGallery(galleryImages, true);
+        }
     });
 
     // Add lightbox to videos
@@ -96,11 +107,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Find all images in the same gallery
                 let galleryImages;
                 
-                if (this.closest('.horizontal-gallery')) {
-                    // For apartment galleries, strictly isolate to the active apartment only
+                if (this.hasAttribute('data-apartment-id')) {
+                    // For apartment galleries, strictly isolate by apartment ID
+                    const apartmentId = this.getAttribute('data-apartment-id');
+                    galleryImages = document.querySelectorAll(`img[data-apartment-id="${apartmentId}"]`);
+                } else if (this.closest('.horizontal-gallery')) {
+                    // Fallback for horizontal galleries without apartment ID
                     const activeApartment = this.closest('.apartment-details');
-                    if (activeApartment && activeApartment.classList.contains('active')) {
-                        // Only include images from this specific apartment's gallery
+                    if (activeApartment) {
                         galleryImages = activeApartment.querySelectorAll('.horizontal-gallery img');
                     } else {
                         galleryImages = this.closest('.horizontal-gallery').querySelectorAll('img');
