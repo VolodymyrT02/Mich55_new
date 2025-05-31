@@ -201,6 +201,16 @@
                     <div class="video-actions">
                         <button class="replace-btn"><i class="fas fa-exchange-alt"></i> Замінити відео</button>
                     </div>
+                    
+                    <h3>Додаткові відео</h3>
+                    <div class="media-grid video-grid">
+                        <div class="media-item add-new">
+                            <div class="media-add">
+                                <i class="fas fa-plus"></i>
+                                <span>Додати відео</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -268,6 +278,51 @@
                         </div>
                     </div>
                     
+                    <h3>Матеріали та конструктив</h3>
+                    <div class="tech-item">
+                        <div class="form-group">
+                            <label for="materials-section-1-title">Заголовок 1:</label>
+                            <input type="text" id="materials-section-1-title" value="Монолітна конструкція">
+                        </div>
+                        <div class="form-group">
+                            <label for="materials-section-1-text">Опис 1:</label>
+                            <textarea id="materials-section-1-text" rows="3">Несучі елементи з армованого залізобетону — міцність, довговічність, надійність.</textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <div class="form-group">
+                            <label for="materials-section-2-title">Заголовок 2:</label>
+                            <input type="text" id="materials-section-2-title" value="Міжколонні стіни з Porotherm">
+                        </div>
+                        <div class="form-group">
+                            <label for="materials-section-2-text">Опис 2:</label>
+                            <textarea id="materials-section-2-text" rows="3">Керамічна цегла Porotherm Wienerberger — природна термоізоляція, екологічність, тиша.</textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <div class="form-group">
+                            <label for="materials-section-3-title">Заголовок 3:</label>
+                            <input type="text" id="materials-section-3-title" value="Фасад — великоформатний керамограніт">
+                        </div>
+                        <div class="form-group">
+                            <label for="materials-section-3-text">Опис 3:</label>
+                            <textarea id="materials-section-3-text" rows="3">Вентильована система з базальтовим утепленням та алюмінієвим кашуванням — баланс естетики та ефективності.</textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <div class="form-group">
+                            <label for="materials-section-4-title">Заголовок 4:</label>
+                            <input type="text" id="materials-section-4-title" value="Вікна SCHÜCO AWS 75Si+">
+                        </div>
+                        <div class="form-group">
+                            <label for="materials-section-4-text">Опис 4:</label>
+                            <textarea id="materials-section-4-text" rows="3">Алюмінієвий профіль, двокамерний склопакет 50 мм SunGuard — максимум світла, мінімум тепловтрат.</textarea>
+                        </div>
+                    </div>
+                    
                     <div class="form-actions">
                         <button class="save-btn"><i class="fas fa-save"></i> Зберегти зміни</button>
                     </div>
@@ -292,6 +347,14 @@
                     <div class="apartment-admin active" data-apartment="1">
                         <h3>Резиденція №1</h3>
                         
+                        <div class="form-group">
+                            <label for="apt1-published">Статус публікації:</label>
+                            <select id="apt1-published">
+                                <option value="published" selected>Опубліковано</option>
+                                <option value="unpublished">Знято з публікації (продано)</option>
+                            </select>
+                        </div>
+                        
                         <div class="media-manager" data-section-name="Квартири - Резиденція №1">
                             <h4>План квартири і фото</h4>
                             <div class="media-grid">
@@ -307,6 +370,26 @@
                             
                             <h4>Фотографії квартири</h4>
                             <div class="media-grid">
+                                <div class="media-item">
+                                    <div class="media-preview">
+                                        <img src="../assets/images/elevator/10.JPEG" alt="Фото квартири 1">
+                                    </div>
+                                    <div class="media-actions">
+                                        <button class="replace-btn"><i class="fas fa-exchange-alt"></i> Замінити</button>
+                                        <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="media-item">
+                                    <div class="media-preview">
+                                        <img src="../assets/images/elevator/10.JPEG" alt="Фото квартири 1">
+                                    </div>
+                                    <div class="media-actions">
+                                        <button class="replace-btn"><i class="fas fa-exchange-alt"></i> Замінити</button>
+                                        <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                    </div>
+                                </div>
+                                
                                 <div class="media-item">
                                     <div class="media-preview">
                                         <img src="../assets/images/elevator/10.JPEG" alt="Фото квартири 1">
@@ -373,6 +456,14 @@
                     <div class="apartment-admin" data-apartment="2">
                         <h3>Резиденція №2</h3>
                         
+                        <div class="form-group">
+                            <label for="apt2-published">Статус публікації:</label>
+                            <select id="apt2-published">
+                                <option value="published" selected>Опубліковано</option>
+                                <option value="unpublished">Знято з публікації (продано)</option>
+                            </select>
+                        </div>
+                        
                         <div class="media-manager" data-section-name="Квартири - Резиденція №2">
                             <h4>План квартири і фото</h4>
                             <div class="media-grid">
@@ -388,6 +479,26 @@
                             
                             <h4>Фотографії квартири</h4>
                             <div class="media-grid">
+                                <div class="media-item">
+                                    <div class="media-preview">
+                                        <img src="../assets/images/elevator/11.JPEG" alt="Фото квартири 2">
+                                    </div>
+                                    <div class="media-actions">
+                                        <button class="replace-btn"><i class="fas fa-exchange-alt"></i> Замінити</button>
+                                        <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="media-item">
+                                    <div class="media-preview">
+                                        <img src="../assets/images/elevator/11.JPEG" alt="Фото квартири 2">
+                                    </div>
+                                    <div class="media-actions">
+                                        <button class="replace-btn"><i class="fas fa-exchange-alt"></i> Замінити</button>
+                                        <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                    </div>
+                                </div>
+                                
                                 <div class="media-item">
                                     <div class="media-preview">
                                         <img src="../assets/images/elevator/11.JPEG" alt="Фото квартири 2">
@@ -454,6 +565,14 @@
                     <div class="apartment-admin" data-apartment="3">
                         <h3>Резиденція №3</h3>
                         
+                        <div class="form-group">
+                            <label for="apt3-published">Статус публікації:</label>
+                            <select id="apt3-published">
+                                <option value="published" selected>Опубліковано</option>
+                                <option value="unpublished">Знято з публікації (продано)</option>
+                            </select>
+                        </div>
+                        
                         <div class="media-manager" data-section-name="Квартири - Резиденція №3">
                             <h4>План квартири і фото</h4>
                             <div class="media-grid">
@@ -465,10 +584,39 @@
                                         <button class="replace-btn"><i class="fas fa-exchange-alt"></i> Замінити</button>
                                     </div>
                                 </div>
+                                
+                                <div class="media-item">
+                                    <div class="media-preview">
+                                        <img src="../assets/images/plans/apartment3_terrace.jpg" alt="План тераси 3">
+                                    </div>
+                                    <div class="media-actions">
+                                        <button class="replace-btn"><i class="fas fa-exchange-alt"></i> Замінити</button>
+                                    </div>
+                                </div>
                             </div>
                             
                             <h4>Фотографії квартири</h4>
                             <div class="media-grid">
+                                <div class="media-item">
+                                    <div class="media-preview">
+                                        <img src="../assets/images/elevator/12.JPEG" alt="Фото квартири 3">
+                                    </div>
+                                    <div class="media-actions">
+                                        <button class="replace-btn"><i class="fas fa-exchange-alt"></i> Замінити</button>
+                                        <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="media-item">
+                                    <div class="media-preview">
+                                        <img src="../assets/images/elevator/12.JPEG" alt="Фото квартири 3">
+                                    </div>
+                                    <div class="media-actions">
+                                        <button class="replace-btn"><i class="fas fa-exchange-alt"></i> Замінити</button>
+                                        <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                    </div>
+                                </div>
+                                
                                 <div class="media-item">
                                     <div class="media-preview">
                                         <img src="../assets/images/elevator/12.JPEG" alt="Фото квартири 3">
@@ -584,23 +732,18 @@
                 <div class="text-manager" data-section-name="Контакти">
                     <h3>Контактна інформація</h3>
                     <div class="form-group">
-                        <label for="contact-phone">Телефон:</label>
-                        <input type="text" id="contact-phone" value="+380 67 123 4567">
+                        <label for="contact-whatsapp">WhatsApp:</label>
+                        <input type="text" id="contact-whatsapp" value="+380 67 123 4567">
                     </div>
                     
                     <div class="form-group">
-                        <label for="contact-email">Email:</label>
-                        <input type="email" id="contact-email" value="info@idgroup.ua">
+                        <label for="contact-telegram">Telegram:</label>
+                        <input type="text" id="contact-telegram" value="+380 67 123 4567">
                     </div>
                     
                     <div class="form-group">
                         <label for="contact-address">Адреса:</label>
                         <input type="text" id="contact-address" value="м. Київ, вул. Мічуріна, 55">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="contact-telegram">Телеграм:</label>
-                        <input type="text" id="contact-telegram" value="IDGroup Kyiv">
                     </div>
                     
                     <div class="form-actions">
