@@ -130,6 +130,7 @@ body {
     top: 70px;
     height: calc(100vh - 70px);
     overflow-y: auto;
+    z-index: 10;
 }
 
 .admin-sidebar nav ul {
@@ -151,6 +152,7 @@ body {
     text-decoration: none;
     transition: background-color 0.3s;
     border-left: 4px solid transparent;
+    cursor: pointer;
 }
 
 .admin-sidebar nav ul li a:hover {
@@ -407,7 +409,7 @@ body {
     font-weight: bold;
 }
 
-.form-group input, .form-group textarea {
+.form-group input, .form-group textarea, .form-group select {
     width: 100%;
     padding: 0.5rem;
     border: 1px solid var(--border-color);
@@ -567,6 +569,28 @@ body {
 .section-navigation button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
+}
+
+/* Apartment unpublished state */
+.apartment-admin.unpublished {
+    opacity: 0.7;
+    position: relative;
+}
+
+.apartment-admin.unpublished::after {
+    content: "ПРОДАНО";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    background-color: var(--danger-color);
+    color: white;
+    padding: 0.5rem 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 4px;
+    z-index: 5;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive */

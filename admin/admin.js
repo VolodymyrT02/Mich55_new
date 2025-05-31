@@ -363,176 +363,237 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Navigation
-    const navLinks = document.querySelectorAll('.admin-sidebar nav ul li a');
-    const sections = document.querySelectorAll('.admin-section');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href').substring(1);
-            
-            // Update active link
-            navLinks.forEach(link => link.classList.remove('active'));
-            this.classList.add('active');
-            
-            // Show target section
-            sections.forEach(section => {
-                section.classList.remove('active');
-                if (section.id === targetId) {
-                    section.classList.add('active');
+    // Navigation - Fixed to ensure proper section switching
+    function initNavigation() {
+        const navLinks = document.querySelectorAll('.admin-sidebar nav ul li a');
+        const sections = document.querySelectorAll('.admin-section');
+        
+        // Make sure navigation works by directly attaching click handlers
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href').substring(1);
+                
+                // Update active link
+                navLinks.forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show target section, hide others
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
                 }
             });
         });
-    });
-    
-    // Apartment tabs
-    const apartmentTabs = document.querySelectorAll('.apartment-tabs .tab-btn');
-    const apartmentContents = document.querySelectorAll('.apartment-admin');
-    
-    apartmentTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            const apartmentId = this.getAttribute('data-apartment');
-            
-            // Update active tab
-            apartmentTabs.forEach(tab => tab.classList.remove('active'));
-            this.classList.add('active');
-            
-            // Show target apartment content
-            apartmentContents.forEach(content => {
-                content.classList.remove('active');
-                if (content.getAttribute('data-apartment') === apartmentId) {
-                    content.classList.add('active');
-                }
-            });
-        });
-    });
-    
-    // Media upload modal
-    const addNewButtons = document.querySelectorAll('.media-item.add-new');
-    const replaceButtons = document.querySelectorAll('.replace-btn');
-    const uploadModal = document.getElementById('upload-modal');
-    const closeModal = document.querySelector('.close-modal');
-    const modalSectionLabel = document.getElementById('modal-section-label');
-    const modalSubsectionLabel = document.getElementById('modal-subsection-label');
-    
-    // Function to open modal with context
-    function openUploadModal(sectionName, subsectionName) {
-        modalSectionLabel.textContent = sectionName;
-        modalSubsectionLabel.textContent = subsectionName;
-        uploadModal.style.display = 'block';
+        
+        // Ensure navigation works on page load
+        const hash = window.location.hash;
+        if (hash) {
+            const targetLink = document.querySelector(`.admin-sidebar nav ul li a[href="${hash}"]`);
+            if (targetLink) {
+                targetLink.click();
+            }
+        }
     }
     
-    // Add new media
-    addNewButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const mediaManager = this.closest('.media-manager');
-            const sectionName = mediaManager.getAttribute('data-section-name');
-            const subsectionName = this.closest('.media-grid').previousElementSibling.textContent;
-            const isVideo = this.closest('.video-grid') !== null;
-            
-            // Update file input accept attribute based on media type
-            const fileUpload = document.getElementById('file-upload');
-            fileUpload.setAttribute('accept', isVideo ? 'video/*' : 'image/*');
-            
-            openUploadModal(sectionName, subsectionName);
-        });
-    });
+    // Initialize navigation immediately
+    initNavigation();
     
-    // Replace existing media
-    replaceButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const mediaManager = this.closest('.media-manager');
-            const sectionName = mediaManager.getAttribute('data-section-name');
-            const mediaItem = this.closest('.media-item');
-            const subsectionName = mediaItem.closest('.media-grid') ? 
-                                  mediaItem.closest('.media-grid').previousElementSibling.textContent :
-                                  mediaItem.closest('.video-preview').previousElementSibling.textContent;
-            const isVideo = mediaItem.querySelector('video') !== null;
-            
-            // Update file input accept attribute based on media type
-            const fileUpload = document.getElementById('file-upload');
-            fileUpload.setAttribute('accept', isVideo ? 'video/*' : 'image/*');
-            
-            openUploadModal(sectionName, subsectionName);
-        });
-    });
-    
-    // Close modal
-    closeModal.addEventListener('click', function() {
-        uploadModal.style.display = 'none';
-    });
-    
-    // Close modal when clicking outside
-    window.addEventListener('click', function(e) {
-        if (e.target === uploadModal) {
-            uploadModal.style.display = 'none';
-        }
-    });
-    
-    // Handle form submission (mock)
-    const uploadForm = document.getElementById('upload-form');
-    uploadForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+    // Apartment tabs
+    function initApartmentTabs() {
+        const apartmentTabs = document.querySelectorAll('.apartment-tabs .tab-btn');
+        const apartmentContents = document.querySelectorAll('.apartment-admin');
         
-        // Mock successful upload
-        alert(currentLang === 'uk' ? 'Файл успішно завантажено!' : 'File uploaded successfully!');
-        uploadModal.style.display = 'none';
-    });
+        apartmentTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const apartmentId = this.getAttribute('data-apartment');
+                
+                // Update active tab
+                apartmentTabs.forEach(tab => tab.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show target apartment content
+                apartmentContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.getAttribute('data-apartment') === apartmentId) {
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+    }
+    
+    // Initialize apartment tabs
+    initApartmentTabs();
+    
+    // Media upload modal
+    function initMediaUpload() {
+        const addNewButtons = document.querySelectorAll('.media-item.add-new');
+        const replaceButtons = document.querySelectorAll('.replace-btn');
+        const uploadModal = document.getElementById('upload-modal');
+        const closeModal = document.querySelector('.close-modal');
+        const modalSectionLabel = document.getElementById('modal-section-label');
+        const modalSubsectionLabel = document.getElementById('modal-subsection-label');
+        
+        // Function to open modal with context
+        function openUploadModal(sectionName, subsectionName) {
+            modalSectionLabel.textContent = sectionName;
+            modalSubsectionLabel.textContent = subsectionName;
+            uploadModal.style.display = 'block';
+        }
+        
+        // Add new media
+        addNewButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const mediaManager = this.closest('.media-manager');
+                const sectionName = mediaManager.getAttribute('data-section-name');
+                const subsectionName = this.closest('.media-grid').previousElementSibling.textContent;
+                const isVideo = this.closest('.video-grid') !== null;
+                
+                // Update file input accept attribute based on media type
+                const fileUpload = document.getElementById('file-upload');
+                fileUpload.setAttribute('accept', isVideo ? 'video/*' : 'image/*');
+                
+                openUploadModal(sectionName, subsectionName);
+            });
+        });
+        
+        // Replace existing media
+        replaceButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const mediaManager = this.closest('.media-manager');
+                const sectionName = mediaManager.getAttribute('data-section-name');
+                const mediaItem = this.closest('.media-item');
+                const subsectionName = mediaItem.closest('.media-grid') ? 
+                                      mediaItem.closest('.media-grid').previousElementSibling.textContent :
+                                      mediaItem.closest('.video-preview').previousElementSibling.textContent;
+                const isVideo = mediaItem.querySelector('video') !== null;
+                
+                // Update file input accept attribute based on media type
+                const fileUpload = document.getElementById('file-upload');
+                fileUpload.setAttribute('accept', isVideo ? 'video/*' : 'image/*');
+                
+                openUploadModal(sectionName, subsectionName);
+            });
+        });
+        
+        // Close modal
+        closeModal.addEventListener('click', function() {
+            uploadModal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === uploadModal) {
+                uploadModal.style.display = 'none';
+            }
+        });
+        
+        // Handle form submission (mock)
+        const uploadForm = document.getElementById('upload-form');
+        uploadForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Mock successful upload
+            alert(currentLang === 'uk' ? 'Файл успішно завантажено!' : 'File uploaded successfully!');
+            uploadModal.style.display = 'none';
+        });
+    }
+    
+    // Initialize media upload
+    initMediaUpload();
     
     // Delete media (mock)
-    const deleteButtons = document.querySelectorAll('.delete-btn');
-    deleteButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const confirmMessage = currentLang === 'uk' ? 
-                                  'Ви впевнені, що хочете видалити цей файл?' : 
-                                  'Are you sure you want to delete this file?';
-            
-            if (confirm(confirmMessage)) {
-                // Mock deletion
-                const mediaItem = this.closest('.media-item');
-                mediaItem.style.opacity = '0.5';
-                setTimeout(() => {
-                    mediaItem.remove();
-                }, 500);
-            }
+    function initDeleteMedia() {
+        const deleteButtons = document.querySelectorAll('.delete-btn');
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const confirmMessage = currentLang === 'uk' ? 
+                                      'Ви впевнені, що хочете видалити цей файл?' : 
+                                      'Are you sure you want to delete this file?';
+                
+                if (confirm(confirmMessage)) {
+                    // Mock deletion
+                    const mediaItem = this.closest('.media-item');
+                    mediaItem.style.opacity = '0.5';
+                    setTimeout(() => {
+                        mediaItem.remove();
+                    }, 500);
+                }
+            });
         });
-    });
+    }
+    
+    // Initialize delete media
+    initDeleteMedia();
     
     // Save changes (mock)
-    const saveButtons = document.querySelectorAll('.save-btn');
-    saveButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Mock saving
-            const successMessage = currentLang === 'uk' ? 
-                                  'Зміни успішно збережено!' : 
-                                  'Changes saved successfully!';
-            alert(successMessage);
+    function initSaveChanges() {
+        const saveButtons = document.querySelectorAll('.save-btn');
+        saveButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Mock saving
+                const successMessage = currentLang === 'uk' ? 
+                                      'Зміни успішно збережено!' : 
+                                      'Changes saved successfully!';
+                alert(successMessage);
+            });
         });
-    });
+    }
+    
+    // Initialize save changes
+    initSaveChanges();
     
     // Apartment publication status
-    const publicationSelects = document.querySelectorAll('[id^="apt"][id$="-published"]');
-    publicationSelects.forEach(select => {
-        select.addEventListener('change', function() {
-            const apartmentId = this.id.match(/apt(\d+)-published/)[1];
-            const isPublished = this.value === 'published';
-            
-            // Visual feedback
-            const apartmentAdmin = this.closest('.apartment-admin');
-            if (isPublished) {
-                apartmentAdmin.classList.remove('unpublished');
-            } else {
-                apartmentAdmin.classList.add('unpublished');
-                const soldMessage = currentLang === 'uk' ? 
-                                   `Резиденція №${apartmentId} знята з публікації (позначена як продана)` : 
-                                   `Residence №${apartmentId} unpublished (marked as sold)`;
-                alert(soldMessage);
-            }
+    function initPublicationStatus() {
+        const publicationSelects = document.querySelectorAll('[id^="apt"][id$="-published"]');
+        publicationSelects.forEach(select => {
+            select.addEventListener('change', function() {
+                const apartmentId = this.id.match(/apt(\d+)-published/)[1];
+                const isPublished = this.value === 'published';
+                
+                // Visual feedback
+                const apartmentAdmin = this.closest('.apartment-admin');
+                if (isPublished) {
+                    apartmentAdmin.classList.remove('unpublished');
+                } else {
+                    apartmentAdmin.classList.add('unpublished');
+                    const soldMessage = currentLang === 'uk' ? 
+                                       `Резиденція №${apartmentId} знята з публікації (позначена як продана)` : 
+                                       `Residence №${apartmentId} unpublished (marked as sold)`;
+                    alert(soldMessage);
+                }
+            });
         });
-    });
+    }
+    
+    // Initialize publication status
+    initPublicationStatus();
     
     // Initialize translations
     loadTranslations();
+    
+    // Force navigation to work by adding a fallback method
+    setTimeout(function() {
+        // Double-check that navigation is working
+        const navLinks = document.querySelectorAll('.admin-sidebar nav ul li a');
+        if (navLinks.length > 0) {
+            // Add direct onclick attributes as a fallback
+            navLinks.forEach((link, index) => {
+                const targetId = link.getAttribute('href').substring(1);
+                link.setAttribute('onclick', `
+                    event.preventDefault();
+                    document.querySelectorAll('.admin-sidebar nav ul li a').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+                    document.getElementById('${targetId}').classList.add('active');
+                `);
+            });
+        }
+    }, 500);
 });
