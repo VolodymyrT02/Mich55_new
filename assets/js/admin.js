@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const langTabs = document.querySelectorAll('.lang-tab');
     
     // Admin credentials (in a real application, this would be handled server-side)
-    const adminUsername = 'admin';
-    const adminPassword = 'idgroup2025';
+    const adminUsername = 'MichBoutique_Admin';
+    const adminPassword = 'P3ch3rsk_Ky1v_2025!';
     
     // Check if user is already logged in
     const isLoggedIn = localStorage.getItem('adminLoggedIn') === 'true';
