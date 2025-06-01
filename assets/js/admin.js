@@ -7,6 +7,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const saveChangesBtn = document.getElementById('save-changes');
     const langTabs = document.querySelectorAll('.lang-tab');
     
+    // Version control to force cache refresh and localStorage reset
+    const currentVersion = '20250601';
+    const savedVersion = localStorage.getItem('adminPanelVersion');
+    
+    // Clear localStorage if version changed
+    if (savedVersion !== currentVersion) {
+        console.log('Admin panel version changed, clearing localStorage');
+        localStorage.clear();
+        localStorage.setItem('adminPanelVersion', currentVersion);
+    }
+    
     // Admin credentials (in a real application, this would be handled server-side)
     const adminUsername = 'MichBoutique_Admin';
     const adminPassword = 'P3ch3rsk_Ky1v_2025!';
