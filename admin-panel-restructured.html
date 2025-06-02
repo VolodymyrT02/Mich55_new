@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адмін-панель - Boutique Apartments Kyiv</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/admin-enhanced.css?v=20250602">
+    <style>
+        /* Дополнительные стили для улучшенной навигации */
+        .section-badge {
+            background-color: #1a2456;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .admin-nav .nav-link {
+            position: relative;
+        }
+        
+        .admin-nav .nav-link.active::after {
+            content: '';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: white;
+        }
+        
+        .media-preview {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Форма входа -->
+    <div id="admin-login-form" class="admin-login-form">
+        <h1>Вхід в адмін-панель</h1>
+        <form id="login-form">
+            <div class="admin-form-group">
+                <label for="admin-username">Ім'я користувача:</label>
+                <input type="text" id="admin-username" required>
+            </div>
+            <div class="admin-form-group">
+                <div class="password-container">
+                    <label for="admin-password">Пароль:</label>
+                    <input type="password" id="admin-password" required>
+                    <button type="button" id="toggle-password" class="toggle-password">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+            <button type="submit" class="admin-button primary">
+                <i class="fas fa-sign-in-alt"></i> Увійти
+            </button>
+        </form>
+    </div>
+
+    <!-- Основной контент админ-панели -->
+    <div id="admin-content" class="admin-container" style="display: none;">
+        <!-- Боковое меню -->
+        <div class="admin-sidebar">
+            <div class="admin-nav">
+                <ul>
+                    <li>
+                        <a href="#" class="nav-link active" data-section="main-section">
+                            <i class="fas fa-home"></i> Головна інформація
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link" data-section="lobby-section">
+                            <i class="fas fa-door-open"></i> Лобі
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link" data-section="video-section">
+                            <i class="fas fa-video"></i> Відео
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link" data-section="tech-section">
+                            <i class="fas fa-cogs"></i> Технології
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link" data-section="materials-section">
+                            <i class="fas fa-hammer"></i> Матеріали та конструктив
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link" data-section="apartments-section">
+                            <i class="fas fa-building"></i> Квартири
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link" data-section="location-section">
+                            <i class="fas fa-map-marker-alt"></i> Розташування
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link" data-section="contacts-section">
+                            <i class="fas fa-address-book"></i> Контакти
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div style="margin-top: auto; padding: 1rem;">
+                <button id="admin-logout" class="admin-button secondary" style="width: 100%;">
+                    <i class="fas fa-sign-out-alt"></i> Вийти
+                </button>
+            </div>
+        </div>
+
+        <!-- Основной контент -->
+        <div class="admin-main">
+            <h1>Адмін-панель Boutique Apartments Kyiv</h1>
+
+            <!-- Языковые вкладки -->
+            <div class="language-selector">
+                <div class="language-tabs">
+                    <button class="lang-tab active" data-lang="uk">Українська</button>
+                    <button class="lang-tab" data-lang="en">English</button>
+                </div>
+            </div>
+
+            <!-- Секция: Головна інформація -->
+            <div id="main-section" class="admin-section active-section">
+                <div class="section-header">
+                    <h2>Головна інформація <span class="section-badge">Головна</span></h2>
+                </div>
+                
+                <div class="text-editor">
+                    <div class="editor-section">
+                        <h3>Заголовок та слоган</h3>
+                        <div class="form-group">
+                            <label for="building-name">Назва будинку:</label>
+                            <input type="text" id="building-name" data-translate value="BOUTIQUE APARTMENTS KYIV">
+                        </div>
+                        <div class="form-group">
+                            <label for="building-slogan">Слоган:</label>
+                            <input type="text" id="building-slogan" data-translate value="Ваш краєвид, ваше натхнення">
+                        </div>
+                        <div class="form-group">
+                            <label for="building-address">Адреса:</label>
+                            <input type="text" id="building-address" data-translate value="вулиця Ломаківська / Мічуріна, 55, Печерський район, м. Київ">
+                        </div>
+                        <div class="form-group">
+                            <label for="building-status">Статус:</label>
+                            <input type="text" id="building-status" data-translate value="Здано в експлуатацію лютий 2025р.">
+                        </div>
+                    </div>
+                    
+                    <div class="editor-section">
+                        <h3>Опис проекту</h3>
+                        <div class="form-group">
+                            <label for="about-text-1">Перший абзац:</label>
+                            <textarea id="about-text-1" data-translate rows="4">6 приватних резиденцій на Печерських схилах — камерна колекція житла, де унікальність панорами поєднується з внутрішнім спокоєм. Простір, де кожне вікно — це живе полотно з видами на Києво-Печерську Лавру, куполи храмів та столичну зелень Ботанічного саду.</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="about-text-2">Другий абзац:</label>
+                            <textarea id="about-text-2" data-translate rows="4">Це локація не для всіх. Лише для тих, хто звик жити на своїх умовах, цінує тишу за закритими дверима і вміє бачити суть у деталях. Тут минуле перетікає в сучасність: історичний настрій району — у діалозі з бездоганним рівнем комфорту та приватності.</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="about-text-3">Третій абзац:</label>
+                            <textarea id="about-text-3" data-translate rows="4">Кожен апартамент — з повним пакетом документів на право власності. Житло, що належить лише вам. Без компромісів. Без шуму. Без зайвих очей.</textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="editor-section">
+                        <h3>Фото фасаду</h3>
+                        <div class="media-items">
+                            <div class="media-item">
+                                <img src="assets/img/facade-1.jpg" alt="Фасад 1" class="media-preview">
+                                <div class="media-actions">
+                                    <button class="replace-btn"><i class="fas fa-sync-alt"></i> Замінити</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                </div>
+                            </div>
+                            <div class="media-item">
+                                <img src="assets/img/facade-2.jpg" alt="Фасад 2" class="media-preview">
+                                <div class="media-actions">
+                                    <button class="replace-btn"><i class="fas fa-sync-alt"></i> Замінити</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                </div>
+                            </div>
+                            <div class="media-item">
+                                <img src="assets/img/facade-3.jpg" alt="Фасад 3" class="media-preview">
+                                <div class="media-actions">
+                                    <button class="replace-btn"><i class="fas fa-sync-alt"></i> Замінити</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                </div>
+                            </div>
+                            <div class="add-new">
+                                <div class="add-placeholder">
+                                    <i class="fas fa-plus-circle"></i>
+                                    <span>Додати фото</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-navigation">
+                    <div></div>
+                    <button class="nav-btn next" data-section="lobby-section">
+                        Перейти до Лобі <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Секция: Лобі -->
+            <div id="lobby-section" class="admin-section">
+                <div class="section-header">
+                    <h2>Лобі <span class="section-badge">Фото</span></h2>
+                </div>
+                
+                <div class="text-editor">
+                    <div class="editor-section">
+                        <h3>Заголовок розділу</h3>
+                        <div class="form-group">
+                            <label for="lobby-title">Заголовок:</label>
+                            <input type="text" id="lobby-title" data-translate value="Лобі">
+                        </div>
+                    </div>
+                    
+                    <div class="editor-section">
+                        <h3>Фотографії лобі</h3>
+                        <div class="media-items">
+                            <div class="media-item">
+                                <img src="assets/img/lobby-1.jpg" alt="Лобі 1" class="media-preview">
+                                <div class="media-actions">
+                                    <button class="replace-btn"><i class="fas fa-sync-alt"></i> Замінити</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                </div>
+                            </div>
+                            <div class="media-item">
+                                <img src="assets/img/lobby-2.jpg" alt="Лобі 2" class="media-preview">
+                                <div class="media-actions">
+                                    <button class="replace-btn"><i class="fas fa-sync-alt"></i> Замінити</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                </div>
+                            </div>
+                            <div class="media-item">
+                                <img src="assets/img/lobby-3.jpg" alt="Лобі 3" class="media-preview">
+                                <div class="media-actions">
+                                    <button class="replace-btn"><i class="fas fa-sync-alt"></i> Замінити</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                </div>
+                            </div>
+                            <div class="media-item">
+                                <img src="assets/img/lobby-4.jpg" alt="Лобі 4" class="media-preview">
+                                <div class="media-actions">
+                                    <button class="replace-btn"><i class="fas fa-sync-alt"></i> Замінити</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                </div>
+                            </div>
+                            <div class="media-item">
+                                <img src="assets/img/lobby-5.jpg" alt="Лобі 5" class="media-preview">
+                                <div class="media-actions">
+                                    <button class="replace-btn"><i class="fas fa-sync-alt"></i> Замінити</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                </div>
+                            </div>
+                            <div class="media-item">
+                                <img src="assets/img/lobby-6.jpg" alt="Лобі 6" class="media-preview">
+                                <div class="media-actions">
+                                    <button class="replace-btn"><i class="fas fa-sync-alt"></i> Замінити</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                </div>
+                            </div>
+                            <div class="media-item">
+                                <img src="assets/img/lobby-7.jpg" alt="Лобі 7" class="media-preview">
+                                <div class="media-actions">
+                                    <button class="replace-btn"><i class="fas fa-sync-alt"></i> Замінити</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                </div>
+                            </div>
+                            <div class="media-item">
+                                <img src="assets/img/lobby-8.jpg" alt="Лобі 8" class="media-preview">
+                                <div class="media-actions">
+                                    <button class="replace-btn"><i class="fas fa-sync-alt"></i> Замінити</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                </div>
+                            </div>
+                            <div class="add-new">
+                                <div class="add-placeholder">
+                                    <i class="fas fa-plus-circle"></i>
+                                    <span>Додати фото</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-navigation">
+                    <button class="nav-btn prev" data-section="main-section">
+                        <i class="fas fa-arrow-left"></i> Назад до Головної
+                    </button>
+                    <button class="nav-btn next" data-section="video-section">
+                        Перейти до Відео <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Секция: Відео -->
+            <div id="video-section" class="admin-section">
+                <div class="section-header">
+                    <h2>Відео <span class="section-badge">Медіа</span></h2>
+                </div>
+                
+                <div class="text-editor">
+                    <div class="editor-section">
+                        <h3>Заголовок розділу</h3>
+                        <div class="form-group">
+                            <label for="video-title">Заголовок:</label>
+                            <input type="text" id="video-title" data-translate value="Відео">
+                        </div>
+                    </div>
+                    
+                    <div class="editor-section">
+                        <h3>Відеоматеріали</h3>
+                        <div class="media-items">
+                            <div class="media-item video-item">
+                                <video src="assets/video/main-video.mp4" controls class="media-preview"></video>
+                                <div class="media-actions">
+                                    <button class="replace-btn"><i class="fas fa-sync-alt"></i> Замінити</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                </div>
+                            </div>
+                            <div class="add-new">
+                                <div class="add-placeholder">
+                                    <i class="fas fa-plus-circle"></i>
+                                    <span>Додати відео</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-navigation">
+                    <button class="nav-btn prev" data-section="lobby-section">
+                        <i class="fas fa-arrow-left"></i> Назад до Лобі
+                    </button>
+                    <button class="nav-btn next" data-section="tech-section">
+                        Перейти до Технологій <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Секция: Технології -->
+            <div id="tech-section" class="admin-section">
+                <div class="section-header">
+                    <h2>Технології <span class="section-badge">Текст</span></h2>
+                </div>
+                
+                <div class="text-editor">
+                    <div class="editor-section">
+                        <h3>Заголовок та підзаголовок</h3>
+                        <div class="form-group">
+                            <label for="tech-title">Заголовок:</label>
+                            <input type="text" id="tech-title" data-translate value="ТЕХНОЛОГІЇ">
+                        </div>
+                        <div class="form-group">
+                            <label for="tech-subtitle">Підзаголовок:</label>
+                            <input type="text" id="tech-subtitle" data-translate value="Преміум-інженерія, створена для незалежності">
+                        </div>
+                    </div>
+                    
+                    <div class="editor-section">
+                        <h3>Технологічні особливості</h3>
+                        <div id="tech-items">
+                            <div class="tech-item">
+                                <div class="form-group">
+                                    <label for="tech-name-1">Назва:</label>
+                                    <input type="text" id="tech-name-1" data-translate value="Індивідуальні теплові насоси">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tech-desc-1">Опис:</label>
+                                    <textarea id="tech-desc-1" data-translate rows="3">Автономність кожної резиденції. Енергоефективне опалення, охолодження, вентиляція та гаряча вода — незалежно від центральних систем.</textarea>
+                                </div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="form-group">
+                                    <label for="tech-name-2">Назва:</label>
+                                    <input type="text" id="tech-name-2" data-translate value="Централізована система Ecosoft">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tech-desc-2">Опис:</label>
+                                    <textarea id="tech-desc-2" data-translate rows="3">Фільтрація та водопідготовка преміум-рівня — гарантована якість питної води у кожному крані.</textarea>
+                                </div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="form-group">
+                                    <label for="tech-name-3">Назва:</label>
+                                    <input type="text" id="tech-name-3" data-translate value="Інтелектуальна диспетчеризація">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tech-desc-3">Опис:</label>
+                                    <textarea id="tech-desc-3" data-translate rows="3">Керуйте всіма системами в реальному часі — з однієї панелі або зі смартфона.</textarea>
+                                </div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="form-group">
+                                    <label for="tech-name-4">Назва:</label>
+                                    <input type="text" id="tech-name-4" data-translate value="Ліфт Schindler">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tech-desc-4">Опис:</label>
+                                    <textarea id="tech-desc-4" data-translate rows="3">Плавний хід і прямий доступ до підземного паркінгу — комфорт без компромісів.</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="add-tech" class="admin-button secondary">
+                            <i class="fas fa-plus"></i> Додати технологію
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="section-navigation">
+                    <button class="nav-btn prev" data-section="video-section">
+                        <i class="fas fa-arrow-left"></i> Назад до Відео
+                    </button>
+                    <button class="nav-btn next" data-section="materials-section">
+                        Перейти до Матеріалів <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Секция: Матеріали та конструктив -->
+            <div id="materials-section" class="admin-section">
+                <div class="section-header">
+                    <h2>Матеріали та конструктив <span class="section-badge">Текст</span></h2>
+                </div>
+                
+                <div class="text-editor">
+                    <div class="editor-section">
+                        <h3>Заголовок розділу</h3>
+                        <div class="form-group">
+                            <label for="materials-title">Заголовок:</label>
+                            <input type="text" id="materials-title" data-translate value="Матеріали та конструктив">
+                        </div>
+                    </div>
+                    
+                    <div class="editor-section">
+                        <h3>Матеріали та конструктивні особливості</h3>
+                        <div id="materials-items">
+                            <div class="tech-item">
+                                <div class="form-group">
+                                    <label for="material-name-1">Назва:</label>
+                                    <input type="text" id="material-name-1" data-translate value="Монолітна конструкція">
+                                </div>
+                                <div class="form-group">
+                                    <label for="material-desc-1">Опис:</label>
+                                    <textarea id="material-desc-1" data-translate rows="3">Несучі елементи з армованого залізобетону — міцність, довговічність, надійність.</textarea>
+                                </div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="form-group">
+                                    <label for="material-name-2">Назва:</label>
+                                    <input type="text" id="material-name-2" data-translate value="Міжколонні стіни з Porotherm">
+                                </div>
+                                <div class="form-group">
+                                    <label for="material-desc-2">Опис:</label>
+                                    <textarea id="material-desc-2" data-translate rows="3">Керамічна цегла Porotherm Wienerberger — природна термоізоляція, екологічність, тиша.</textarea>
+                                </div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="form-group">
+                                    <label for="material-name-3">Назва:</label>
+                                    <input type="text" id="material-name-3" data-translate value="Фасад — великоформатний керамограніт">
+                                </div>
+                                <div class="form-group">
+                                    <label for="material-desc-3">Опис:</label>
+                                    <textarea id="material-desc-3" data-translate rows="3">Вентильована система з базальтовим утепленням та алюмінієвим кашуванням — баланс естетики та ефективності.</textarea>
+                                </div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="form-group">
+                                    <label for="material-name-4">Назва:</label>
+                                    <input type="text" id="material-name-4" data-translate value="Вікна SCHÜCO AWS 75Si+">
+                                </div>
+                                <div class="form-group">
+                                    <label for="material-desc-4">Опис:</label>
+                                    <textarea id="material-desc-4" data-translate rows="3">Алюмінієвий профіль, двокамерний склопакет 50 мм SunGuard — максимум світла, мінімум тепловтрат.</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="add-material" class="admin-button secondary">
+                            <i class="fas fa-plus"></i> Додати матеріал
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="section-navigation">
+                    <button class="nav-btn prev" data-section="tech-section">
+                        <i class="fas fa-arrow-left"></i> Назад до Технологій
+                    </button>
+                    <button class="nav-btn next" data-section="apartments-section">
+                        Перейти до Квартир <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Секция: Квартири -->
+            <div id="apartments-section" class="admin-section">
+                <div class="section-header">
+                    <h2>Квартири <span class="section-badge">Квартири</span></h2>
+                </div>
+                
+                <div class="text-editor">
+                    <div class="editor-section">
+                        <h3>Заголовок розділу</h3>
+                        <div class="form-group">
+                            <label for="apartments-title">Заголовок:</label>
+                            <input type="text" id="apartments-title" data-translate value="Квартири">
+                        </div>
+                    </div>
+                    
+                    <div class="editor-section">
+                        <h3>Список квартир</h3>
+                        <div id="apartment-list">
+                            <div class="apartment-item">
+                                <div class="apartment-details">
+                                    <input type="checkbox" id="apartment1" checked>
+                                    <label for="apartment1">Резиденція №1 (1-й поверх)</label>
+                                </div>
+                                <div class="apartment-status">
+                                    <label for="status1">Статус публікації:</label>
+                                    <select id="status1" class="status-select">
+                                        <option value="available">Доступна</option>
+                                        <option value="reserved">Зарезервована</option>
+                                        <option value="sold">Продана</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="apartment-item">
+                                <div class="apartment-details">
+                                    <input type="checkbox" id="apartment2" checked>
+                                    <label for="apartment2">Резиденція №2 (2-й поверх)</label>
+                                </div>
+                                <div class="apartment-status">
+                                    <label for="status2">Статус публікації:</label>
+                                    <select id="status2" class="status-select">
+                                        <option value="available">Доступна</option>
+                                        <option value="reserved">Зарезервована</option>
+                                        <option value="sold">Продана</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="apartment-item">
+                                <div class="apartment-details">
+                                    <input type="checkbox" id="apartment3" checked>
+                                    <label for="apartment3">Резиденція №3 (3-й поверх)</label>
+                                </div>
+                                <div class="apartment-status">
+                                    <label for="status3">Статус публікації:</label>
+                                    <select id="status3" class="status-select">
+                                        <option value="available">Доступна</option>
+                                        <option value="reserved">Зарезервована</option>
+                                        <option value="sold">Продана</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="apartment-item">
+                                <div class="apartment-details">
+                                    <input type="checkbox" id="apartment4" checked>
+                                    <label for="apartment4">Резиденція №4 (4-й поверх)</label>
+                                </div>
+                                <div class="apartment-status">
+                                    <label for="status4">Статус публікації:</label>
+                                    <select id="status4" class="status-select">
+                                        <option value="available">Доступна</option>
+                                        <option value="reserved">Зарезервована</option>
+                                        <option value="sold">Продана</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="apartment-item">
+                                <div class="apartment-details">
+                                    <input type="checkbox" id="apartment5" checked>
+                                    <label for="apartment5">Резиденція №5 (5-й поверх)</label>
+                                </div>
+                                <div class="apartment-status">
+                                    <label for="status5">Статус публікації:</label>
+                                    <select id="status5" class="status-select">
+                                        <option value="available">Доступна</option>
+                                        <option value="reserved">Зарезервована</option>
+                                        <option value="sold">Продана</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="apartment-item">
+                                <div class="apartment-details">
+                                    <input type="checkbox" id="apartment6" checked>
+                                    <label for="apartment6">Резиденція №6 (6-й поверх)</label>
+                                </div>
+                                <div class="apartment-status">
+                                    <label for="status6">Статус публікації:</label>
+                                    <select id="status6" class="status-select">
+                                        <option value="available">Доступна</option>
+                                        <option value="reserved">Зарезервована</option>
+                                        <option value="sold">Продана</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="editor-section">
+                        <h3>Деталі квартири (Резиденція №1)</h3>
+                        <div class="form-group">
+                            <label for="apt-title">Заголовок:</label>
+                            <input type="text" id="apt-title" data-translate value="РЕЗИДЕНЦІЯ №1 (1-й поверх)">
+                        </div>
+                        <div class="form-group">
+                            <label for="apt-status">Статус:</label>
+                            <input type="text" id="apt-status" data-translate value="Здано в експлуатацію лютий 2025р.">
+                        </div>
+                        <div class="form-group">
+                            <label for="apt-area-legal">Юридична площа:</label>
+                            <input type="text" id="apt-area-legal" data-translate value="211,7 м²">
+                        </div>
+                        <div class="form-group">
+                            <label for="apt-area-actual">Фактична площа:</label>
+                            <input type="text" id="apt-area-actual" data-translate value="189,5 м² внутрішня площа + 74 м² тераса з зеленою зоною">
+                        </div>
+                        <div class="form-group">
+                            <label for="apt-view">Вид:</label>
+                            <input type="text" id="apt-view" data-translate value="Києво-Печерська Лавра, Батьківщина-Мати">
+                        </div>
+                        <div class="form-group">
+                            <label for="apt-price">Вартість:</label>
+                            <input type="text" id="apt-price" data-translate value="1 100 000 $">
+                        </div>
+                        <div class="form-group">
+                            <label for="apt-included">Включено:</label>
+                            <input type="text" id="apt-included" data-translate value="2 паркомісця + кладова">
+                        </div>
+                    </div>
+                    
+                    <div class="editor-section">
+                        <h3>План квартири і фото</h3>
+                        <div class="form-group">
+                            <label for="apt-photos-title">Заголовок розділу:</label>
+                            <input type="text" id="apt-photos-title" data-translate value="План квартири і фото">
+                        </div>
+                        
+                        <div class="media-items">
+                            <div class="media-item">
+                                <img src="assets/img/apartment-plan.jpg" alt="План квартири" class="media-preview">
+                                <div class="media-actions">
+                                    <button class="replace-btn"><i class="fas fa-sync-alt"></i> Замінити</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                </div>
+                                <div class="form-group">
+                                    <label for="apt-plan-caption">Підпис:</label>
+                                    <input type="text" id="apt-plan-caption" data-translate value="План квартири">
+                                </div>
+                            </div>
+                            <div class="media-item">
+                                <img src="assets/img/apartment-hall-1.jpg" alt="Ліфтовий хол 1" class="media-preview">
+                                <div class="media-actions">
+                                    <button class="replace-btn"><i class="fas fa-sync-alt"></i> Замінити</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                </div>
+                                <div class="form-group">
+                                    <label for="apt-hall-1-caption">Підпис:</label>
+                                    <input type="text" id="apt-hall-1-caption" data-translate value="Ліфтовий хол">
+                                </div>
+                            </div>
+                            <div class="media-item">
+                                <img src="assets/img/apartment-hall-2.jpg" alt="Ліфтовий хол 2" class="media-preview">
+                                <div class="media-actions">
+                                    <button class="replace-btn"><i class="fas fa-sync-alt"></i> Замінити</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                </div>
+                                <div class="form-group">
+                                    <label for="apt-hall-2-caption">Підпис:</label>
+                                    <input type="text" id="apt-hall-2-caption" data-translate value="Ліфтовий хол">
+                                </div>
+                            </div>
+                            <div class="media-item">
+                                <img src="assets/img/apartment-hall-3.jpg" alt="Ліфтовий хол 3" class="media-preview">
+                                <div class="media-actions">
+                                    <button class="replace-btn"><i class="fas fa-sync-alt"></i> Замінити</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> Видалити</button>
+                                </div>
+                                <div class="form-group">
+                                    <label for="apt-hall-3-caption">Підпис:</label>
+                                    <input type="text" id="apt-hall-3-caption" data-translate value="Ліфтовий хол">
+                                </div>
+                            </div>
+                            <div class="add-new">
+                                <div class="add-placeholder">
+                                    <i class="fas fa-plus-circle"></i>
+                                    <span>Додати фото</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-navigation">
+                    <button class="nav-btn prev" data-section="materials-section">
+                        <i class="fas fa-arrow-left"></i> Назад до Матеріалів
+                    </button>
+                    <button class="nav-btn next" data-section="location-section">
+                        Перейти до Розташування <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Секция: Розташування -->
+            <div id="location-section" class="admin-section">
+                <div class="section-header">
+                    <h2>Розташування <span class="section-badge">Карта</span></h2>
+                </div>
+                
+                <div class="text-editor">
+                    <div class="editor-section">
+                        <h3>Заголовок розділу</h3>
+                        <div class="form-group">
+                            <label for="location-title">Заголовок:</label>
+                            <input type="text" id="location-title" data-translate value="Розташування">
+                        </div>
+                    </div>
+                    
+                    <div class="editor-section">
+                        <h3>Опис розташування</h3>
+                        <div class="form-group">
+                            <label for="location-text">Текст:</label>
+                            <textarea id="location-text" data-translate rows="4">Печерський район - історичний центр Києва з видами на Києво-Печерську Лавру та Ботанічний сад. Ідеальне розташування для тих, хто цінує приватність та комфорт.</textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="editor-section">
+                        <h3>Карта</h3>
+                        <div class="form-group">
+                            <label for="map-address">Адреса для карти:</label>
+                            <input type="text" id="map-address" value="Ломаковская ул., 55, Киев, 02000">
+                        </div>
+                        <div class="form-group">
+                            <label for="map-embed">Код вбудованої карти:</label>
+                            <textarea id="map-embed" rows="4" style="font-family: monospace; font-size: 12px;">&lt;iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2541.0687554095437!2d30.55!3d50.44!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTDCsDI2JzI0LjAiTiAzMMKwMzMnMDAuMCJF!5e0!3m2!1sru!2sua!4v1622547849612!5m2!1sru!2sua" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"&gt;&lt;/iframe&gt;</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Попередній перегляд карти:</label>
+                            <div style="border: 1px solid #ddd; padding: 10px; background-color: #f9f9f9;">
+                                <img src="assets/img/map-preview.jpg" alt="Карта" style="width: 100%; max-height: 300px; object-fit: cover;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-navigation">
+                    <button class="nav-btn prev" data-section="apartments-section">
+                        <i class="fas fa-arrow-left"></i> Назад до Квартир
+                    </button>
+                    <button class="nav-btn next" data-section="contacts-section">
+                        Перейти до Контактів <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Секция: Контакти -->
+            <div id="contacts-section" class="admin-section">
+                <div class="section-header">
+                    <h2>Контакти <span class="section-badge">Контакти</span></h2>
+                </div>
+                
+                <div class="text-editor">
+                    <div class="editor-section">
+                        <h3>Заголовок розділу</h3>
+                        <div class="form-group">
+                            <label for="contacts-title">Заголовок:</label>
+                            <input type="text" id="contacts-title" data-translate value="Контакти">
+                        </div>
+                    </div>
+                    
+                    <div class="editor-section">
+                        <h3>Контактна інформація</h3>
+                        <div class="form-group">
+                            <label for="contact-phone">Телефон:</label>
+                            <input type="text" id="contact-phone" value="+38 (044) 390 79 79">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-telegram">Телеграм-бот:</label>
+                            <input type="text" id="contact-telegram" value="IDGroup Kyiv">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-mobile">Мобільний телефон:</label>
+                            <input type="text" id="contact-mobile" value="+380 (93) 434 70 42">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-navigation">
+                    <button class="nav-btn prev" data-section="location-section">
+                        <i class="fas fa-arrow-left"></i> Назад до Розташування
+                    </button>
+                    <div></div>
+                </div>
+            </div>
+
+            <!-- Кнопка сохранения -->
+            <div class="admin-actions">
+                <button id="save-changes" class="admin-button primary">
+                    <i class="fas fa-save"></i> Зберегти всі зміни
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Индикатор автосохранения -->
+    <div class="autosave-indicator">
+        <i class="fas fa-save"></i> Автозбереження...
+    </div>
+
+    <script src="assets/js/admin-enhanced.js?v=20250602"></script>
+</body>
+</html>
