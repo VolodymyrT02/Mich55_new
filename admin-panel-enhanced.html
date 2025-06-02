@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель - Boutique Apartments Kyiv</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Админ-панель Boutique Apartments Kyiv</h1>
+        
+        <!-- Sidebar Navigation -->
+        <div class="admin-sidebar">
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="#dashboard" class="nav-link active" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> Панель управления</a></li>
+                    <li><a href="#apartments" class="nav-link" data-section="apartments"><i class="fas fa-building"></i> Квартиры</a></li>
+                    <li><a href="#texts" class="nav-link" data-section="texts"><i class="fas fa-font"></i> Тексты</a></li>
+                    <li><a href="#media" class="nav-link" data-section="media"><i class="fas fa-images"></i> Медиа</a></li>
+                    <li><a href="#location" class="nav-link" data-section="location"><i class="fas fa-map-marker-alt"></i> Расположение</a></li>
+                    <li><a href="#technologies" class="nav-link" data-section="technologies"><i class="fas fa-cogs"></i> Технологии</a></li>
+                    <li><a href="#contacts" class="nav-link" data-section="contacts"><i class="fas fa-address-book"></i> Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="admin-main">
+            <!-- Login Form -->
+            <div id="admin-login-form" class="admin-login-form">
+                <form id="login-form">
+                    <div class="admin-form-group">
+                        <label for="admin-username">Имя пользователя:</label>
+                        <input type="text" id="admin-username" required>
+                    </div>
+                    <div class="admin-form-group">
+                        <label for="admin-password">Пароль:</label>
+                        <div class="password-container" style="position: relative;">
+                            <input type="password" id="admin-password" required>
+                            <button type="button" id="toggle-password" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer;">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="submit" class="admin-button">Войти</button>
+                </form>
+            </div>
+            
+            <!-- Admin Content -->
+            <div id="admin-content" class="admin-content" style="display: none;">
+                <!-- Language Selector (Global) -->
+                <div class="language-selector">
+                    <div class="language-tabs">
+                        <button class="lang-tab active" data-lang="uk">Украинский</button>
+                        <button class="lang-tab" data-lang="en">Английский</button>
+                    </div>
+                </div>
+                
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="admin-section active-section">
+                    <div class="section-header">
+                        <h2>Панель управления</h2>
+                        <span class="section-badge">Главная</span>
+                    </div>
+                    
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-building"></i>
+                            <div class="stat-info">
+                                <h3>Квартиры</h3>
+                                <p>6 резиденций</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-images"></i>
+                            <div class="stat-info">
+                                <h3>Медиа</h3>
+                                <p>3 фото фасада, 8 фото лобби</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-language"></i>
+                            <div class="stat-info">
+                                <h3>Языки</h3>
+                                <p>Украинский, Английский</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-actions">
+                        <h3>Быстрые действия</h3>
+                        <div class="action-buttons">
+                            <button class="action-btn" data-section="apartments"><i class="fas fa-edit"></i> Управление квартирами</button>
+                            <button class="action-btn" data-section="media"><i class="fas fa-photo-video"></i> Управление медиа</button>
+                            <button class="action-btn" data-section="texts"><i class="fas fa-font"></i> Редактирование текстов</button>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Apartments Section -->
+                <section id="apartments" class="admin-section">
+                    <div class="section-header">
+                        <h2>Управление квартирами</h2>
+                        <span class="section-badge">Квартиры</span>
+                    </div>
+                    
+                    <div id="apartment-list">
+                        <div class="apartment-item">
+                            <div class="apartment-details">
+                                <input type="checkbox" id="apartment1" checked>
+                                <label for="apartment1">Резиденция №1 (1-й этаж)</label>
+                            </div>
+                            <div class="apartment-status">
+                                <label for="status1">Статус публикации:</label>
+                                <select id="status1" class="status-select">
+                                    <option value="available">Доступна</option>
+                                    <option value="reserved">Зарезервирована</option>
+                                    <option value="sold">Продана</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="apartment-item">
+                            <div class="apartment-details">
+                                <input type="checkbox" id="apartment2" checked>
+                                <label for="apartment2">Резиденция №2 (2-й этаж)</label>
+                            </div>
+                            <div class="apartment-status">
+                                <label for="status2">Статус публикации:</label>
+                                <select id="status2" class="status-select">
+                                    <option value="available">Доступна</option>
+                                    <option value="reserved">Зарезервирована</option>
+                                    <option value="sold">Продана</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="apartment-item">
+                            <div class="apartment-details">
+                                <input type="checkbox" id="apartment3" checked>
+                                <label for="apartment3">Резиденция №3 (3-й этаж)</label>
+                            </div>
+                            <div class="apartment-status">
+                                <label for="status3">Статус публикации:</label>
+                                <select id="status3" class="status-select">
+                                    <option value="available">Доступна</option>
+                                    <option value="reserved">Зарезервирована</option>
+                                    <option value="sold">Продана</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="apartment-item">
+                            <div class="apartment-details">
+                                <input type="checkbox" id="apartment4" checked>
+                                <label for="apartment4">Резиденция №4 (4-й этаж)</label>
+                            </div>
+                            <div class="apartment-status">
+                                <label for="status4">Статус публикации:</label>
+                                <select id="status4" class="status-select">
+                                    <option value="available">Доступна</option>
+                                    <option value="reserved">Зарезервирована</option>
+                                    <option value="sold">Продана</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="apartment-item">
+                            <div class="apartment-details">
+                                <input type="checkbox" id="apartment5" checked>
+                                <label for="apartment5">Резиденция №5 (5-й этаж)</label>
+                            </div>
+                            <div class="apartment-status">
+                                <label for="status5">Статус публикации:</label>
+                                <select id="status5" class="status-select">
+                                    <option value="available">Доступна</option>
+                                    <option value="reserved">Зарезервирована</option>
+                                    <option value="sold">Продана</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="apartment-item">
+                            <div class="apartment-details">
+                                <input type="checkbox" id="apartment6" checked>
+                                <label for="apartment6">Резиденция №6 (6-й этаж)</label>
+                            </div>
+                            <div class="apartment-status">
+                                <label for="status6">Статус публикации:</label>
+                                <select id="status6" class="status-select">
+                                    <option value="available">Доступна</option>
+                                    <option value="reserved">Зарезервирована</option>
+                                    <option value="sold">Продана</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="apartment-media">
+                        <h3>Фотографии квартир</h3>
+                        <div class="media-items apartment-photos">
+                            <div class="media-item">
+                                <img src="assets/images/apartments/apartment1.jpg" alt="Квартира 1">
+                                <div class="media-actions">
+                                    <button class="replace-btn">Заменить</button>
+                                    <button class="delete-btn">Удалить</button>
+                                </div>
+                            </div>
+                            <div class="media-item">
+                                <img src="assets/images/apartments/apartment2.jpg" alt="Квартира 2">
+                                <div class="media-actions">
+                                    <button class="replace-btn">Заменить</button>
+                                    <button class="delete-btn">Удалить</button>
+                                </div>
+                            </div>
+                            <div class="media-item">
+                                <img src="assets/images/apartments/apartment3.jpg" alt="Квартира 3">
+                                <div class="media-actions">
+                                    <button class="replace-btn">Заменить</button>
+                                    <button class="delete-btn">Удалить</button>
+                                </div>
+                            </div>
+                            <div class="media-item add-new">
+                                <div class="add-placeholder">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Добавить фото</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-navigation">
+                        <button class="nav-btn prev" data-section="dashboard"><i class="fas fa-arrow-left"></i> Панель управления</button>
+                        <button class="nav-btn next" data-section="texts"><i class="fas fa-arrow-right"></i> Тексты</button>
+                    </div>
+                </section>
+                
+                <!-- Texts Section -->
+                <section id="texts" class="admin-section">
+                    <div class="section-header">
+                        <h2>Редактирование текстов</h2>
+                        <span class="section-badge">Тексты</span>
+                    </div>
+                    
+                    <div class="text-editor">
+                        <div class="editor-sections">
+                            <div class="editor-section">
+                                <h3>Заголовок и слоган</h3>
+                                <div class="form-group">
+                                    <label for="building-name">Название:</label>
+                                    <input type="text" id="building-name" value="BOUTIQUE APARTMENTS KYIV">
+                                </div>
+                                <div class="form-group">
+                                    <label for="building-slogan">Слоган:</label>
+                                    <input type="text" id="building-slogan" value="Ваш краєвид, ваше натхнення">
+                                </div>
+                                <div class="form-group">
+                                    <label for="building-address">Адрес:</label>
+                                    <input type="text" id="building-address" value="вулиця Ломаківська / Мічуріна, 55, Печерський район, м. Київ">
+                                </div>
+                            </div>
+                            
+                            <div class="editor-section">
+                                <h3>Описание</h3>
+                                <div class="form-group">
+                                    <label for="about-text-1">Абзац 1:</label>
+                                    <textarea id="about-text-1" rows="3">6 резиденцій на Печерських схилах. Приватність історичного центру з видами на Києво-Печерську Лавру та Ботанічний сад.</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="about-text-2">Абзац 2:</label>
+                                    <textarea id="about-text-2" rows="4">Ексклюзивна локація для тих, хто цінує автентичність та незалежність. Поєднання культурної спадщини з сучасним комфортом у серці історичного району.</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-navigation">
+                        <button class="nav-btn prev" data-section="apartments"><i class="fas fa-arrow-left"></i> Квартиры</button>
+                        <button class="nav-btn next" data-section="media"><i class="fas fa-arrow-right"></i> Медиа</button>
+                    </div>
+                </section>
+                
+                <!-- Media Section -->
+                <section id="media" class="admin-section">
+                    <div class="section-header">
+                        <h2>Управление медиафайлами</h2>
+                        <span class="section-badge">Медиа</span>
+                    </div>
+                    
+                    <div class="media-manager">
+                        <div class="media-category">
+                            <h3>Фото фасада</h3>
+                            <div class="media-items">
+                                <div class="media-item">
+                                    <img src="assets/images/facade/Michurina1.JPEG" alt="Фасад 1">
+                                    <div class="media-actions">
+                                        <button class="replace-btn">Заменить</button>
+                                        <button class="delete-btn">Удалить</button>
+                                    </div>
+                                </div>
+                                <div class="media-item">
+                                    <img src="assets/images/facade/Michurina2.JPEG" alt="Фасад 2">
+                                    <div class="media-actions">
+                                        <button class="replace-btn">Заменить</button>
+                                        <button class="delete-btn">Удалить</button>
+                                    </div>
+                                </div>
+                                <div class="media-item">
+                                    <img src="assets/images/facade/Michurina3.JPEG" alt="Фасад 3">
+                                    <div class="media-actions">
+                                        <button class="replace-btn">Заменить</button>
+                                        <button class="delete-btn">Удалить</button>
+                                    </div>
+                                </div>
+                                <div class="media-item add-new">
+                                    <div class="add-placeholder">
+                                        <i class="fas fa-plus"></i>
+                                        <span>Добавить фото</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="media-category">
+                            <h3>Фото лобби</h3>
+                            <div class="media-items">
+                                <div class="media-item">
+                                    <img src="assets/images/lobby/lobby1.jpg" alt="Лобби 1">
+                                    <div class="media-actions">
+                                        <button class="replace-btn">Заменить</button>
+                                        <button class="delete-btn">Удалить</button>
+                                    </div>
+                                </div>
+                                <div class="media-item">
+                                    <img src="assets/images/lobby/lobby2.jpg" alt="Лобби 2">
+                                    <div class="media-actions">
+                                        <button class="replace-btn">Заменить</button>
+                                        <button class="delete-btn">Удалить</button>
+                                    </div>
+                                </div>
+                                <div class="media-item">
+                                    <img src="assets/images/lobby/lobby3.jpg" alt="Лобби 3">
+                                    <div class="media-actions">
+                                        <button class="replace-btn">Заменить</button>
+                                        <button class="delete-btn">Удалить</button>
+                                    </div>
+                                </div>
+                                <div class="media-item">
+                                    <img src="assets/images/lobby/lobby4.jpg" alt="Лобби 4">
+                                    <div class="media-actions">
+                                        <button class="replace-btn">Заменить</button>
+                                        <button class="delete-btn">Удалить</button>
+                                    </div>
+                                </div>
+                                <div class="media-item">
+                                    <img src="assets/images/lobby/lobby5.jpg" alt="Лобби 5">
+                                    <div class="media-actions">
+                                        <button class="replace-btn">Заменить</button>
+                                        <button class="delete-btn">Удалить</button>
+                                    </div>
+                                </div>
+                                <div class="media-item">
+                                    <img src="assets/images/lobby/lobby6.jpg" alt="Лобби 6">
+                                    <div class="media-actions">
+                                        <button class="replace-btn">Заменить</button>
+                                        <button class="delete-btn">Удалить</button>
+                                    </div>
+                                </div>
+                                <div class="media-item">
+                                    <img src="assets/images/lobby/lobby7.jpg" alt="Лобби 7">
+                                    <div class="media-actions">
+                                        <button class="replace-btn">Заменить</button>
+                                        <button class="delete-btn">Удалить</button>
+                                    </div>
+                                </div>
+                                <div class="media-item">
+                                    <img src="assets/images/lobby/lobby8.jpg" alt="Лобби 8">
+                                    <div class="media-actions">
+                                        <button class="replace-btn">Заменить</button>
+                                        <button class="delete-btn">Удалить</button>
+                                    </div>
+                                </div>
+                                <div class="media-item add-new">
+                                    <div class="add-placeholder">
+                                        <i class="fas fa-plus"></i>
+                                        <span>Добавить фото</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="media-category">
+                            <h3>Планы квартир</h3>
+                            <div class="media-items">
+                                <div class="media-item">
+                                    <img src="assets/images/plans/apartment1.jpg" alt="План квартиры 1">
+                                    <div class="media-actions">
+                                        <button class="replace-btn">Заменить</button>
+                                        <button class="delete-btn">Удалить</button>
+                                    </div>
+                                </div>
+                                <div class="media-item">
+                                    <img src="assets/images/plans/apartment2.jpg" alt="План квартиры 2">
+                                    <div class="media-actions">
+                                        <button class="replace-btn">Заменить</button>
+                                        <button class="delete-btn">Удалить</button>
+                                    </div>
+                                </div>
+                                <div class="media-item add-new">
+                                    <div class="add-placeholder">
+                                        <i class="fas fa-plus"></i>
+                                        <span>Добавить план</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="media-category">
+                            <h3>Видео</h3>
+                            <div class="media-items">
+                                <div class="media-item video-item">
+                                    <video controls>
+                                        <source src="assets/videos/promo.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                    <div class="media-actions">
+                                        <button class="replace-btn">Заменить</button>
+                                        <button class="delete-btn">Удалить</button>
+                                    </div>
+                                </div>
+                                <div class="media-item add-new">
+                                    <div class="add-placeholder">
+                                        <i class="fas fa-plus"></i>
+                                        <span>Добавить видео</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-navigation">
+                        <button class="nav-btn prev" data-section="texts"><i class="fas fa-arrow-left"></i> Тексты</button>
+                        <button class="nav-btn next" data-section="location"><i class="fas fa-arrow-right"></i> Расположение</button>
+                    </div>
+                </section>
+                
+                <!-- Location Section -->
+                <section id="location" class="admin-section">
+                    <div class="section-header">
+                        <h2>Расположение</h2>
+                        <span class="section-badge">Расположение</span>
+                    </div>
+                    
+                    <div class="text-editor">
+                        <div class="editor-sections">
+                            <div class="editor-section">
+                                <h3>Заголовок раздела</h3>
+                                <div class="form-group">
+                                    <label for="location-title">Заголовок:</label>
+                                    <input type="text" id="location-title" value="Расположение">
+                                </div>
+                            </div>
+                            
+                            <div class="editor-section">
+                                <h3>Описание расположения</h3>
+                                <div class="form-group">
+                                    <label for="location-text">Текст:</label>
+                                    <textarea id="location-text" rows="4">Печерский район - исторический центр Киева с видами на Киево-Печерскую Лавру и Ботанический сад. Идеальное расположение для тех, кто ценит приватность и комфорт.</textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="editor-section">
+                                <h3>Карта</h3>
+                                <div class="form-group">
+                                    <label for="map-embed">Код вставки карты:</label>
+                                    <textarea id="map-embed" rows="4"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2541.0479134384894!2d30.54!3d50.44!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTDCsDI2JzI0LjAiTiAzMMKwMzInMjQuMCJF!5e0!3m2!1sen!2sua!4v1623456789012!5m2!1sen!2sua" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-navigation">
+                        <button class="nav-btn prev" data-section="media"><i class="fas fa-arrow-left"></i> Медиа</button>
+                        <button class="nav-btn next" data-section="technologies"><i class="fas fa-arrow-right"></i> Технологии</button>
+                    </div>
+                </section>
+                
+                <!-- Technologies Section -->
+                <section id="technologies" class="admin-section">
+                    <div class="section-header">
+                        <h2>Технологии</h2>
+                        <span class="section-badge">Технологии</span>
+                    </div>
+                    
+                    <div class="text-editor">
+                        <div class="editor-sections">
+                            <div class="editor-section">
+                                <h3>Заголовок раздела</h3>
+                                <div class="form-group">
+                                    <label for="tech-title">Заголовок:</label>
+                                    <input type="text" id="tech-title" value="Технологии">
+                                </div>
+                            </div>
+                            
+                            <div class="editor-section">
+                                <h3>Технологии и материалы</h3>
+                                <div id="tech-items">
+                                    <div class="tech-item">
+                                        <div class="form-group">
+                                            <label for="tech-name-1">Название:</label>
+                                            <input type="text" id="tech-name-1" value="Умный дом">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tech-desc-1">Описание:</label>
+                                            <textarea id="tech-desc-1" rows="3">Полная автоматизация управления освещением, климатом и безопасностью.</textarea>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tech-item">
+                                        <div class="form-group">
+                                            <label for="tech-name-2">Название:</label>
+                                            <input type="text" id="tech-name-2" value="Энергоэффективность">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tech-desc-2">Описание:</label>
+                                            <textarea id="tech-desc-2" rows="3">Современные технологии теплоизоляции и энергосбережения.</textarea>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tech-item">
+                                        <div class="form-group">
+                                            <label for="tech-name-3">Название:</label>
+                                            <input type="text" id="tech-name-3" value="Премиальные материалы">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tech-desc-3">Описание:</label>
+                                            <textarea id="tech-desc-3" rows="3">Натуральный камень, дерево и другие экологически чистые материалы.</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button id="add-tech" class="admin-button secondary"><i class="fas fa-plus"></i> Добавить технологию</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-navigation">
+                        <button class="nav-btn prev" data-section="location"><i class="fas fa-arrow-left"></i> Расположение</button>
+                        <button class="nav-btn next" data-section="contacts"><i class="fas fa-arrow-right"></i> Контакты</button>
+                    </div>
+                </section>
+                
+                <!-- Contacts Section -->
+                <section id="contacts" class="admin-section">
+                    <div class="section-header">
+                        <h2>Контакты</h2>
+                        <span class="section-badge">Контакты</span>
+                    </div>
+                    
+                    <div class="text-editor">
+                        <div class="editor-sections">
+                            <div class="editor-section">
+                                <h3>Контактная информация</h3>
+                                <div class="form-group">
+                                    <label for="contact-phone">Телефон:</label>
+                                    <input type="text" id="contact-phone" value="+380 44 123 4567">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-email">Email:</label>
+                                    <input type="email" id="contact-email" value="info@michurina55.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-address">Адрес офиса продаж:</label>
+                                    <input type="text" id="contact-address" value="ул. Мичурина, 55, Печерский район, г. Киев">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-hours">Часы работы:</label>
+                                    <input type="text" id="contact-hours" value="Пн-Пт: 10:00-19:00, Сб: 11:00-17:00">
+                                </div>
+                            </div>
+                            
+                            <div class="editor-section">
+                                <h3>Социальные сети</h3>
+                                <div class="form-group">
+                                    <label for="social-facebook">Facebook:</label>
+                                    <input type="text" id="social-facebook" value="https://facebook.com/michurina55">
+                                </div>
+                                <div class="form-group">
+                                    <label for="social-instagram">Instagram:</label>
+                                    <input type="text" id="social-instagram" value="https://instagram.com/michurina55">
+                                </div>
+                                <div class="form-group">
+                                    <label for="social-telegram">Telegram:</label>
+                                    <input type="text" id="social-telegram" value="https://t.me/michurina55">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-navigation">
+                        <button class="nav-btn prev" data-section="technologies"><i class="fas fa-arrow-left"></i> Технологии</button>
+                        <button class="nav-btn next" data-section="dashboard"><i class="fas fa-arrow-right"></i> Панель управления</button>
+                    </div>
+                </section>
+                
+                <!-- Global Admin Actions -->
+                <div class="admin-actions">
+                    <button id="save-changes" class="admin-button primary">Сохранить изменения</button>
+                    <button id="admin-logout" class="admin-button secondary">Выйти</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/admin-enhanced.js?v=20250602"></script>
+</body>
+</html>
