@@ -6,9 +6,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const logoutBtn = document.getElementById('admin-logout');
     const saveChangesBtn = document.getElementById('save-changes');
     const langTabs = document.querySelectorAll('.lang-tab');
+    const togglePasswordBtn = document.getElementById('toggle-password');
+    const passwordInput = document.getElementById('admin-password');
+    
+    // Password visibility toggle
+    if (togglePasswordBtn && passwordInput) {
+        togglePasswordBtn.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            // Change icon
+            const icon = togglePasswordBtn.querySelector('i');
+            if (type === 'password') {
+                icon.className = 'fas fa-eye';
+            } else {
+                icon.className = 'fas fa-eye-slash';
+            }
+        });
+    }
     
     // Version control to force cache refresh and localStorage reset
-    const currentVersion = '20250601';
+    const currentVersion = '20250602';
     const savedVersion = localStorage.getItem('adminPanelVersion');
     
     // Clear localStorage if version changed
@@ -39,14 +57,23 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Debug info in console
             console.log('Login attempt with username: ' + username);
+            console.log('Password length: ' + password.length);
+            
+            // Hardcoded credentials for direct comparison
+            const hardcodedUsername = 'MichBoutique_Admin';
+            const hardcodedPassword = 'P3ch3rsk_Ky1v_2025!';
             
             // Case-insensitive username comparison and exact password match
-            if (username.toLowerCase() === adminUsername.toLowerCase() && password === adminPassword) {
+            if (username.toLowerCase() === hardcodedUsername.toLowerCase() && 
+                password === hardcodedPassword) {
                 console.log('Login successful');
                 localStorage.setItem('adminLoggedIn', 'true');
                 showAdminPanel();
             } else {
-                console.log('Login failed');
+                console.log('Login failed. Username: ' + (username.toLowerCase() === hardcodedUsername.toLowerCase() ? 'correct' : 'incorrect') + 
+                          ', Password: ' + (password === hardcodedPassword ? 'correct' : 'incorrect'));
+                console.log('Expected password: ' + hardcodedPassword.length + ' chars');
+                
                 // Force clear localStorage to ensure clean state
                 localStorage.removeItem('adminLoggedIn');
                 alert('Неверное имя пользователя или пароль');
