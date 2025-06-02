@@ -33,13 +33,22 @@ document.addEventListener('DOMContentLoaded', function() {
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const username = document.getElementById('admin-username').value;
-            const password = document.getElementById('admin-password').value;
+            // Get input values and trim whitespace
+            const username = document.getElementById('admin-username').value.trim();
+            const password = document.getElementById('admin-password').value.trim();
             
-            if (username === adminUsername && password === adminPassword) {
+            // Debug info in console
+            console.log('Login attempt with username: ' + username);
+            
+            // Case-insensitive username comparison and exact password match
+            if (username.toLowerCase() === adminUsername.toLowerCase() && password === adminPassword) {
+                console.log('Login successful');
                 localStorage.setItem('adminLoggedIn', 'true');
                 showAdminPanel();
             } else {
+                console.log('Login failed');
+                // Force clear localStorage to ensure clean state
+                localStorage.removeItem('adminLoggedIn');
                 alert('Неверное имя пользователя или пароль');
             }
         });
