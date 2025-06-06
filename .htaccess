@@ -1,0 +1,79 @@
+# Оптимизация кеширования для повышения производительности
+<IfModule mod_expires.c>
+  ExpiresActive On
+  
+  # Изображения
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  
+  # Видео
+  ExpiresByType video/mp4 "access plus 1 year"
+  ExpiresByType video/webm "access plus 1 year"
+  
+  # CSS, JavaScript
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  
+  # Шрифты
+  ExpiresByType font/ttf "access plus 1 year"
+  ExpiresByType font/otf "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  
+  # Данные
+  ExpiresByType application/json "access plus 1 day"
+  
+  # HTML документы
+  ExpiresByType text/html "access plus 0 seconds"
+  
+  # Значение по умолчанию
+  ExpiresDefault "access plus 2 days"
+</IfModule>
+
+# Сжатие файлов для ускорения загрузки
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/json
+</IfModule>
+
+# Защита от хотлинкинга изображений
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteCond %{HTTP_REFERER} !^$
+  RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?butik55.id-app.io [NC]
+  RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?ionos.es [NC]
+  RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?google.com [NC]
+  RewriteCond %{REQUEST_URI} \.(jpg|jpeg|png|gif|webp)$ [NC]
+  RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [F]
+</IfModule>
+
+# Оптимизация загрузки сайта
+<IfModule mod_headers.c>
+  # Включение Keep-Alive
+  Header set Connection keep-alive
+  
+  # Отключение ETags
+  Header unset ETag
+  FileETag None
+</IfModule>
+
+# Установка лимитов для предотвращения перегрузки сервера
+<IfModule mod_php.c>
+  php_value max_execution_time 60
+  php_value memory_limit 128M
+  php_value post_max_size 8M
+  php_value upload_max_filesize 8M
+</IfModule>
