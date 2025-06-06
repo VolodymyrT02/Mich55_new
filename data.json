@@ -1,0 +1,160 @@
+{
+  "uk": {
+    "header": {
+      "title": "Бутік-апартаменти Київ",
+      "subtitle": "Мічуріна 55"
+    },
+    "sections": {
+      "about": {
+        "title": "Про комплекс",
+        "description": "Елітні апартаменти в центрі Києва з панорамними вікнами та сучасним дизайном. Комплекс розташований у тихому районі, але з легким доступом до всіх основних пам'яток міста.",
+        "features": [
+          "Панорамні вікна",
+          "Сучасний дизайн",
+          "Підземний паркінг",
+          "Цілодобова охорона"
+        ]
+      },
+      "gallery": {
+        "title": "Галерея",
+        "images": [
+          {
+            "src": "assets/images/gallery/exterior1.jpg",
+            "alt": "Зовнішній вигляд будівлі",
+            "caption": "Сучасна архітектура"
+          },
+          {
+            "src": "assets/images/gallery/interior1.jpg",
+            "alt": "Інтер'єр апартаментів",
+            "caption": "Просторий інтер'єр"
+          },
+          {
+            "src": "assets/images/gallery/view1.jpg",
+            "alt": "Вид з вікна",
+            "caption": "Панорамний вид на місто"
+          }
+        ]
+      },
+      "features": {
+        "title": "Особливості",
+        "items": [
+          {
+            "icon": "home",
+            "title": "Преміум локація",
+            "description": "Розташування в престижному районі міста"
+          },
+          {
+            "icon": "shield",
+            "title": "Безпека",
+            "description": "Цілодобова охорона та відеоспостереження"
+          },
+          {
+            "icon": "car",
+            "title": "Паркінг",
+            "description": "Підземний паркінг для мешканців та гостей"
+          },
+          {
+            "icon": "tree",
+            "title": "Зелена зона",
+            "description": "Власна територія з ландшафтним дизайном"
+          }
+        ]
+      },
+      "location": {
+        "title": "Розташування",
+        "address": "вул. Мічуріна, 55, Київ",
+        "description": "Комплекс розташований у центральній частині міста, поруч з парками, ресторанами та торговими центрами.",
+        "mapCoordinates": {
+          "lat": 50.4501,
+          "lng": 30.5234
+        }
+      },
+      "contact": {
+        "title": "Контакти",
+        "email": "info@butik55.com",
+        "phone": "+380 44 123 4567",
+        "workingHours": "Пн-Пт: 9:00-18:00, Сб: 10:00-15:00",
+        "address": "вул. Мічуріна, 55, Київ, 01001"
+      }
+    }
+  },
+  "en": {
+    "header": {
+      "title": "Boutique Apartments Kyiv",
+      "subtitle": "Michurina 55"
+    },
+    "sections": {
+      "about": {
+        "title": "About",
+        "description": "Elite apartments in the center of Kyiv with panoramic windows and modern design. The complex is located in a quiet area, but with easy access to all major city attractions.",
+        "features": [
+          "Panoramic windows",
+          "Modern design",
+          "Underground parking",
+          "24/7 security"
+        ]
+      },
+      "gallery": {
+        "title": "Gallery",
+        "images": [
+          {
+            "src": "assets/images/gallery/exterior1.jpg",
+            "alt": "Building exterior",
+            "caption": "Modern architecture"
+          },
+          {
+            "src": "assets/images/gallery/interior1.jpg",
+            "alt": "Apartment interior",
+            "caption": "Spacious interior"
+          },
+          {
+            "src": "assets/images/gallery/view1.jpg",
+            "alt": "View from window",
+            "caption": "Panoramic city view"
+          }
+        ]
+      },
+      "features": {
+        "title": "Features",
+        "items": [
+          {
+            "icon": "home",
+            "title": "Premium location",
+            "description": "Located in a prestigious city district"
+          },
+          {
+            "icon": "shield",
+            "title": "Security",
+            "description": "24/7 security and video surveillance"
+          },
+          {
+            "icon": "car",
+            "title": "Parking",
+            "description": "Underground parking for residents and guests"
+          },
+          {
+            "icon": "tree",
+            "title": "Green area",
+            "description": "Private territory with landscape design"
+          }
+        ]
+      },
+      "location": {
+        "title": "Location",
+        "address": "55 Michurina St., Kyiv",
+        "description": "The complex is located in the central part of the city, near parks, restaurants and shopping centers.",
+        "mapCoordinates": {
+          "lat": 50.4501,
+          "lng": 30.5234
+        }
+      },
+      "contact": {
+        "title": "Contact",
+        "email": "info@butik55.com",
+        "phone": "+380 44 123 4567",
+        "workingHours": "Mon-Fri: 9:00-18:00, Sat: 10:00-15:00",
+        "address": "55 Michurina St., Kyiv, 01001"
+      }
+    }
+  }
+}
