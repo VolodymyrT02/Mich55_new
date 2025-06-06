@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Очистка кэша браузера - Michurina 55</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .button {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #2980b9;
+        }
+        .success {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .error {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .instructions {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+        }
+        .browser-instructions {
+            margin-top: 30px;
+        }
+        .browser-instructions h3 {
+            color: #2c3e50;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Очистка кэша браузера - Michurina 55</h1>
+        
+        <p>Эта страница поможет вам очистить кэш браузера для корректного отображения сайта Michurina 55.</p>
+        
+        <div class="instructions">
+            <p>Нажмите кнопку ниже для автоматической очистки кэша вашего браузера:</p>
+            <button id="clearCacheBtn" class="button">Очистить кэш</button>
+            <p id="status"></p>
+        </div>
+        
+        <p>После очистки кэша перейдите на <a href="index.html">главную страницу</a> или в <a href="admin-panel.html">админ-панель</a>.</p>
+        
+        <div class="browser-instructions">
+            <h2>Инструкции по ручной очистке кэша</h2>
+            
+            <h3>Google Chrome</h3>
+            <ol>
+                <li>Нажмите Ctrl+Shift+Delete (Windows/Linux) или Command+Shift+Delete (Mac)</li>
+                <li>Выберите временной диапазон "Все время"</li>
+                <li>Отметьте "Изображения и файлы, сохраненные в кэше"</li>
+                <li>Нажмите "Удалить данные"</li>
+                <li>Перезагрузите страницу с помощью Ctrl+F5 (Windows/Linux) или Command+Shift+R (Mac)</li>
+            </ol>
+            
+            <h3>Mozilla Firefox</h3>
+            <ol>
+                <li>Нажмите Ctrl+Shift+Delete (Windows/Linux) или Command+Shift+Delete (Mac)</li>
+                <li>Выберите временной диапазон "Все"</li>
+                <li>Отметьте "Кэш"</li>
+                <li>Нажмите "Удалить сейчас"</li>
+                <li>Перезагрузите страницу с помощью Ctrl+F5 (Windows/Linux) или Command+Shift+R (Mac)</li>
+            </ol>
+            
+            <h3>Safari</h3>
+            <ol>
+                <li>Нажмите Option+Command+E для очистки кэша</li>
+                <li>Или перейдите в меню Safari > Настройки > Дополнительно > Показать меню "Разработка" в строке меню</li>
+                <li>Затем выберите Разработка > Очистить кэши</li>
+                <li>Перезагрузите страницу с помощью Option+Command+R</li>
+            </ol>
+            
+            <h3>Microsoft Edge</h3>
+            <ol>
+                <li>Нажмите Ctrl+Shift+Delete</li>
+                <li>Выберите временной диапазон "Все время"</li>
+                <li>Отметьте "Кэшированные изображения и файлы"</li>
+                <li>Нажмите "Очистить сейчас"</li>
+                <li>Перезагрузите страницу с помощью Ctrl+F5</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const clearCacheBtn = document.getElementById('clearCacheBtn');
+            const statusElement = document.getElementById('status');
+            
+            clearCacheBtn.addEventListener('click', function() {
+                try {
+                    // Очистка localStorage
+                    localStorage.clear();
+                    
+                    // Очистка sessionStorage
+                    sessionStorage.clear();
+                    
+                    // Установка метки времени для предотвращения кэширования
+                    const timestamp = new Date().getTime();
+                    localStorage.setItem('cacheCleared', timestamp);
+                    
+                    // Добавление параметра к URL для предотвращения кэширования
+                    const currentUrl = window.location.href.split('?')[0];
+                    const newUrl = currentUrl + '?v=' + timestamp;
+                    
+                    statusElement.className = 'success';
+                    statusElement.textContent = 'Кэш успешно очищен! Перенаправление...';
+                    
+                    // Перенаправление на главную страницу с параметром версии
+                    setTimeout(function() {
+                        window.location.href = 'index.html?v=' + timestamp;
+                    }, 2000);
+                } catch (error) {
+                    statusElement.className = 'error';
+                    statusElement.textContent = 'Ошибка при очистке кэша: ' + error.message;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

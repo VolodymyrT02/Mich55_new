@@ -15,9 +15,9 @@
   ExpiresByType video/webm "access plus 1 year"
   
   # CSS, JavaScript
-  ExpiresByType text/css "access plus 1 month"
-  ExpiresByType text/javascript "access plus 1 month"
-  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/css "access plus 1 hour"
+  ExpiresByType text/javascript "access plus 1 hour"
+  ExpiresByType application/javascript "access plus 1 hour"
   
   # Шрифты
   ExpiresByType font/ttf "access plus 1 year"
@@ -26,7 +26,7 @@
   ExpiresByType font/woff2 "access plus 1 year"
   
   # Данные
-  ExpiresByType application/json "access plus 1 day"
+  ExpiresByType application/json "access plus 0 seconds"
   
   # HTML документы
   ExpiresByType text/html "access plus 0 seconds"
@@ -34,6 +34,15 @@
   # Значение по умолчанию
   ExpiresDefault "access plus 2 days"
 </IfModule>
+
+# Запрет кэширования для JSON и JavaScript файлов
+<FilesMatch "\.(json|js)$">
+  <IfModule mod_headers.c>
+    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </IfModule>
+</FilesMatch>
 
 # Сжатие файлов для ускорения загрузки
 <IfModule mod_deflate.c>
