@@ -83,6 +83,17 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('active');
             populateFieldsWithData(); // Populate fields with new language data
             localStorage.setItem('selectedLanguage', currentLang);
+            
+            // Синхронизируем данные с translations.js при переключении языка
+            if (window.syncDataToTranslations) {
+                window.syncDataToTranslations().then(success => {
+                    if (success) {
+                        console.log('Данные успешно синхронизированы с translations.js при переключении языка');
+                    } else {
+                        console.warn('Не удалось синхронизировать данные с translations.js при переключении языка');
+                    }
+                });
+            }
         });
     });
 
@@ -320,12 +331,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 siteData = data;
                 console.log('Loaded data from data.json');
                 populateFieldsWithData();
+                
+                // Синхронизируем данные с translations.js
+                if (window.syncDataToTranslations) {
+                    window.syncDataToTranslations().then(success => {
+                        if (success) {
+                            console.log('Данные успешно синхронизированы с translations.js');
+                        } else {
+                            console.warn('Не удалось синхронизировать данные с translations.js');
+                        }
+                    });
+                }
             })
             .catch(error => {
                 console.error('Error loading data.json:', error);
                 alert('Помилка завантаження даних сайту (data.json). Адмін-панель може працювати некоректно.');
                 // Initialize with empty structure if load fails
-                siteData = { uk: {}, en: {} }; 
+                siteData = { 
+                    uk: {
+                        sections: {
+                            apartments: { items: [] }
+                        }
+                    }, 
+                    en: {
+                        sections: {
+                            apartments: { items: [] }
+                        }
+                    } 
+                }; 
             });
     }
 
@@ -338,43 +371,44 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const langData = siteData[currentLang];
+        const sections = langData.sections || {};
 
         // --- Populate Main Info ---
-        document.getElementById('building-name').value = langData.main_info?.title || '';
-        // Corrected mapping for subtitle1 and subtitle2
+        document.getElementById('building-name').value = langData.header?.title || '';
+        // Corrected mapping for subtitle
         const sloganInput = document.getElementById('building-slogan');
         if (sloganInput) {
-             sloganInput.value = `${langData.main_info?.subtitle1 || ''} ${langData.main_info?.subtitle2 || ''}`.trim();
+             sloganInput.value = langData.header?.subtitle || '';
         }
-        document.getElementById('building-address').value = langData.main_info?.address || '';
-        document.getElementById('building-status').value = langData.main_info?.commissioning_date || '';
+        document.getElementById('building-address').value = sections.location?.address || '';
+        document.getElementById('building-status').value = sections.about?.status || '';
         // Split description into paragraphs based on newline
-        const descriptionParts = (langData.main_info?.description || '').split('\n\n');
+        const descriptionParts = (sections.about?.description || '').split('\n\n');
         document.getElementById('about-text-1').value = descriptionParts[0] || '';
         document.getElementById('about-text-2').value = descriptionParts[1] || '';
         document.getElementById('about-text-3').value = descriptionParts[2] || '';
         // TODO: Populate facade photos (requires dynamic element creation based on siteData.uk.main_info.facade_photos)
 
         // --- Populate Lobby ---
-        document.getElementById('lobby-title').value = langData.lobby?.title || '';
+        document.getElementById('lobby-title').value = sections.gallery?.title || '';
         // TODO: Populate lobby photos (dynamic)
 
         // --- Populate Video ---
-        document.getElementById('video-title').value = langData.video?.title || '';
+        document.getElementById('video-title').value = sections.video?.title || '';
         // TODO: Populate video elements (dynamic)
 
         // --- Populate Technologies ---
-        document.getElementById('tech-title').value = langData.technologies?.title || '';
-        document.getElementById('tech-subtitle').value = langData.technologies?.subtitle || '';
-        populateDynamicItems('tech', langData.technologies?.items || []);
+        document.getElementById('tech-title').value = sections.features?.title || '';
+        document.getElementById('tech-subtitle').value = sections.features?.subtitle || '';
+        populateDynamicItems('tech', sections.features?.items || []);
 
         // --- Populate Materials ---
-        document.getElementById('materials-title').value = langData.materials?.title || '';
-        populateDynamicItems('material', langData.materials?.items || []);
+        document.getElementById('materials-title').value = sections.materials?.title || '';
+        populateDynamicItems('material', sections.materials?.items || []);
 
         // --- Populate Apartments ---
-        document.getElementById('apartments-title').value = langData.apartments?.title || '';
-        const apartments = siteData.uk.apartments?.items || []; // Use UK structure for apartment list/status
+        document.getElementById('apartments-title').value = sections.apartments?.title || '';
+        const apartments = sections.apartments?.items || []; // Use current language structure for apartment list/status
         const apartmentListDiv = document.getElementById('apartment-list');
         apartmentListDiv.innerHTML = ''; // Clear existing list items
         apartments.forEach((apt, index) => {
@@ -668,6 +702,17 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('autosavedSiteData', JSON.stringify(siteData));
             showAutosaveIndicator();
             console.log('Autosaved data to localStorage');
+            
+            // Сохраняем данные в data.json и синхронизируем с translations.js
+            if (window.saveDataJson) {
+                window.saveDataJson(siteData).then(success => {
+                    if (success) {
+                        console.log('Данные успешно сохранены в data.json и синхронизированы с translations.js');
+                    } else {
+                        console.warn('Не удалось сохранить данные в data.json');
+                    }
+                });
+            }
         } catch (e) {
             console.error('Error autosaving data:', e);
             alert('Помилка автозбереження. Можливо, досягнуто ліміту localStorage.');

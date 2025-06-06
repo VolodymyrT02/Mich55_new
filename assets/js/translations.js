@@ -64,7 +64,7 @@ const translations = {
         apartments_apartment1_legal_area: "Юридична площа: 211,7 м²",
         apartments_apartment1_actual_area: "Фактично: 189,5 м² внутрішня площа + 74 м² тераса з зеленою зоною",
         apartments_apartment1_view: "Вид: Києво-Печерська Лавра, Батьківщина-Мати",
-        apartments_apartment1_price: "Вартість: 1 100 000 $",
+        apartments_apartment1_price: "Вартість: 1 050 000 $",
         apartments_apartment1_included: "Включено: 2 паркомісця + кладова",
         
         apartments_apartment2_plan_caption: "План квартири",
@@ -73,7 +73,7 @@ const translations = {
         apartments_apartment2_legal_area: "Юридична площа: 237 м²",
         apartments_apartment2_actual_area: "Фактично: 227 м² внутрішня площа + 33,3 м² тераса",
         apartments_apartment2_view: "Вид: Батьківщина-Мати, Києво-Печерська Лавра",
-        apartments_apartment2_price: "Вартість: 1 185 000 $",
+        apartments_apartment2_price: "Вартість: 1 150 000 $",
         apartments_apartment2_included: "Включено: 2 паркомісця + кладова",
         
         apartments_apartment3_plan_caption: "План квартири",
@@ -83,7 +83,7 @@ const translations = {
         apartments_apartment3_legal_area: "Юридична площа: 238,2 м²",
         apartments_apartment3_actual_area: "Фактично: 204 м² внутрішня площа + 30 м² балкони + 84 м² панорамна тераса на покрівлі",
         apartments_apartment3_view: "Вид: Ботанічний сад + панорама міста з покрівлі",
-        apartments_apartment3_price: "Вартість: 1 085 000 $",
+        apartments_apartment3_price: "Вартість: 950 000 $",
         apartments_apartment3_included: "Включено: 2 паркомісця + кладова",
         
         location_title: "Розташування",
@@ -157,7 +157,7 @@ const translations = {
         apartments_apartment1_legal_area: "Legal area: 211.7 m²",
         apartments_apartment1_actual_area: "Actual: 189.5 m² internal area + 74 m² terrace with green zone",
         apartments_apartment1_view: "View: Kyiv Pechersk Lavra, Motherland Monument",
-        apartments_apartment1_price: "Price: $1,100,000",
+        apartments_apartment1_price: "Price: $1,050,000",
         apartments_apartment1_included: "Included: 2 parking spaces + storage room",
         
         apartments_apartment2_plan_caption: "Apartment Plan",
@@ -166,7 +166,7 @@ const translations = {
         apartments_apartment2_legal_area: "Legal area: 237 m²",
         apartments_apartment2_actual_area: "Actual: 227 m² internal area + 33.3 m² terrace",
         apartments_apartment2_view: "View: Motherland Monument, Kyiv Pechersk Lavra",
-        apartments_apartment2_price: "Price: $1,185,000",
+        apartments_apartment2_price: "Price: $1,150,000",
         apartments_apartment2_included: "Included: 2 parking spaces + storage room",
         
         apartments_apartment3_plan_caption: "Apartment Plan",
@@ -176,7 +176,7 @@ const translations = {
         apartments_apartment3_legal_area: "Legal area: 238.2 m²",
         apartments_apartment3_actual_area: "Actual: 204 m² internal area + 30 m² balconies + 84 m² panoramic rooftop terrace",
         apartments_apartment3_view: "View: Botanical Garden + city panorama from rooftop",
-        apartments_apartment3_price: "Price: $1,085,000",
+        apartments_apartment3_price: "Price: $950,000",
         apartments_apartment3_included: "Included: 2 parking spaces + storage room",
         
         location_title: "Location",

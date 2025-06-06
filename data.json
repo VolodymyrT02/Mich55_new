@@ -60,6 +60,62 @@
           }
         ]
       },
+      "apartments": {
+        "title": "Квартири",
+        "items": [
+          {
+            "id": "apartment1",
+            "name": "РЕЗИДЕНЦІЯ №1 (1-й поверх)",
+            "status": "available",
+            "commissioning_date": "Здано в експлуатацію лютий 2025р.",
+            "details": [
+              "Юридична площа: 211,7 м²",
+              "Фактично: 189,5 м² внутрішня площа + 74 м² тераса з зеленою зоною",
+              "Вид: Києво-Печерська Лавра, Батьківщина-Мати",
+              "Вартість: 1 050 000 $",
+              "Включено: 2 паркомісця + кладова"
+            ],
+            "plan_photo": "assets/images/plans/apartment1.jpg",
+            "photos": [
+              "assets/images/elevator/10.JPEG"
+            ]
+          },
+          {
+            "id": "apartment2",
+            "name": "РЕЗИДЕНЦІЯ №2 (2-й поверх)",
+            "status": "available",
+            "commissioning_date": "Здано в експлуатацію лютий 2025р.",
+            "details": [
+              "Юридична площа: 237 м²",
+              "Фактично: 227 м² внутрішня площа + 33,3 м² тераса",
+              "Вид: Батьківщина-Мати, Києво-Печерська Лавра",
+              "Вартість: 1 150 000 $",
+              "Включено: 2 паркомісця + кладова"
+            ],
+            "plan_photo": "assets/images/plans/apartment2.jpg",
+            "photos": [
+              "assets/images/elevator/11.JPEG"
+            ]
+          },
+          {
+            "id": "apartment3",
+            "name": "РЕЗИДЕНЦІЯ №3 (3-й поверх)",
+            "status": "available",
+            "commissioning_date": "Здано в експлуатацію лютий 2025р.",
+            "details": [
+              "Юридична площа: 238,2 м²",
+              "Фактично: 204 м² внутрішня площа + 30 м² балкони + 84 м² панорамна тераса на покрівлі",
+              "Вид: Ботанічний сад + панорама міста з покрівлі",
+              "Вартість: 950 000 $",
+              "Включено: 2 паркомісця + кладова"
+            ],
+            "plan_photo": "assets/images/plans/apartment3.jpg",
+            "photos": [
+              "assets/images/elevator/12.JPEG"
+            ]
+          }
+        ]
+      },
       "location": {
         "title": "Розташування",
         "address": "вул. Мічуріна, 55, Київ",
@@ -139,6 +195,62 @@
           }
         ]
       },
+      "apartments": {
+        "title": "Apartments",
+        "items": [
+          {
+            "id": "apartment1",
+            "name": "RESIDENCE №1 (Ground floor)",
+            "status": "available",
+            "commissioning_date": "Commissioned February 2025",
+            "details": [
+              "Legal area: 211.7 m²",
+              "Actual: 189.5 m² internal area + 74 m² terrace with green zone",
+              "View: Kyiv Pechersk Lavra, Motherland Monument",
+              "Price: $1,050,000",
+              "Included: 2 parking spaces + storage room"
+            ],
+            "plan_photo": "assets/images/plans/apartment1.jpg",
+            "photos": [
+              "assets/images/elevator/10.JPEG"
+            ]
+          },
+          {
+            "id": "apartment2",
+            "name": "RESIDENCE №2 (2nd floor)",
+            "status": "available",
+            "commissioning_date": "Commissioned February 2025",
+            "details": [
+              "Legal area: 237 m²",
+              "Actual: 227 m² internal area + 33.3 m² terrace",
+              "View: Motherland Monument, Kyiv Pechersk Lavra",
+              "Price: $1,150,000",
+              "Included: 2 parking spaces + storage room"
+            ],
+            "plan_photo": "assets/images/plans/apartment2.jpg",
+            "photos": [
+              "assets/images/elevator/11.JPEG"
+            ]
+          },
+          {
+            "id": "apartment3",
+            "name": "RESIDENCE №3 (3rd floor)",
+            "status": "available",
+            "commissioning_date": "Commissioned February 2025",
+            "details": [
+              "Legal area: 238.2 m²",
+              "Actual: 204 m² internal area + 30 m² balconies + 84 m² panoramic rooftop terrace",
+              "View: Botanical Garden + city panorama from rooftop",
+              "Price: $950,000",
+              "Included: 2 parking spaces + storage room"
+            ],
+            "plan_photo": "assets/images/plans/apartment3.jpg",
+            "photos": [
+              "assets/images/elevator/12.JPEG"
+            ]
+          }
+        ]
+      },
       "location": {
         "title": "Location",
         "address": "55 Michurina St., Kyiv",
@@ -158,3 +270,4 @@
     }
   }
 }
+
