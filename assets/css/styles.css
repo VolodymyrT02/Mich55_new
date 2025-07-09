@@ -49,13 +49,13 @@ ul {
 
 /* Header Styles */
 header {
-  background-color: var(--primary-color);
-  color: var(--light-text);
-  padding: 1.5rem 2rem; /* Increased padding to make header taller */
-  position: relative; /* Kept as relative to avoid white gap */
-  width: 100%;
-  top: 0;
+  position: absolute;
+  top: 20px;
   left: 0;
+  width: 100%;
+  background: transparent;
+  color: var(--light-text);
+  padding: 1rem 2rem;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
@@ -68,20 +68,19 @@ header {
   z-index: 1001;
   position: absolute;
   left: 2rem;
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
 }
 
 .menu-toggle.active i:before {
   content: "\f00d";
 }
 
-.logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
+/* Hide logo */
+.logo-container { display: none; }
 
 .logo {
   height: 45px; /* Decreased logo height to fit within header */
@@ -111,13 +110,13 @@ header {
 
 .language-switcher {
   position: absolute;
-  right: 2rem;
+  right: 7rem; /* Отступ, чтобы не перекрывать кнопку меню */
 }
 
 .language-switcher button {
   background: transparent;
-  border: 1px solid var(--light-text);
-  color: var(--light-text);
+  border: 1px solid #fff;
+  color: #fff;
   padding: 0.5rem 1rem;
   cursor: pointer;
   font-size: 0.9rem;
@@ -131,7 +130,7 @@ nav {
   left: -100%;
   width: 250px;
   height: 100vh;
-  background-color: var(--primary-color);
+  background: rgba(0,0,0,0.4); /* Semi-transparent, colour-neutral */
   padding-top: 80px;
   transition: left 0.3s ease;
   z-index: 999;
@@ -316,6 +315,7 @@ nav ul li a:hover {
 }
 
 .technology-content {
+  display: block;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -480,12 +480,22 @@ nav ul li a:hover {
   display: flex;
   align-items: center;
   margin-bottom: 1.5rem;
+  gap: 0.5rem; /* consistent spacing between icon and text */
 }
 
 .contact-item i {
   font-size: 1.5rem;
   margin-right: 1rem;
   color: var(--primary-color);
+  width: 1.5rem; /* fixed width for alignment */
+  text-align: center;
+}
+
+/* Ensure links inside contact items align vertically */
+.contact-item p,
+.contact-item a {
+  margin: 0;
+  line-height: 1.3;
 }
 
 .contact-item a {
@@ -514,9 +524,10 @@ nav ul li a:hover {
 
 /* Footer */
 footer {
-  background-color: var(--primary-color);
-  color: var(--light-text);
+  background: transparent;
+  color: var(--text-color);
   padding: 2rem 0;
+  display: none;
 }
 
 .footer-content {
@@ -557,7 +568,7 @@ footer {
     position: fixed;
     width: 250px;
     height: 100vh;
-    background-color: var(--primary-color);
+    background: rgba(0,0,0,0.4); /* Match mobile nav transparency */
     padding-top: 80px;
     left: -100%;
   }
@@ -669,4 +680,88 @@ footer {
     position: relative; /* Changed from fixed to remove gap */
     margin-bottom: 0;
   }
+}
+
+/* -------------------------------------------------- */
+/*  Responsive Enhancements (2025-06)                 */
+/* -------------------------------------------------- */
+
+/* Small phones (≤575px) */
+@media (max-width: 575px) {
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.4rem; }
+  .tab-btn {
+    padding: 0.4rem 0.8rem;
+    margin: 0 0.3rem 0.5rem;
+    font-size: 0.9rem;
+  }
+  .apartment-images {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+  .contact-item i { font-size: 1.2rem; margin-right: 0.5rem; }
+  .map-container { height: 250px; }
+}
+
+/* Desktop (≥992px) */
+@media (min-width: 992px) {
+  /* Layout */
+  .container { width: 85%; max-width: 1400px; }
+
+  /* Header & Navigation */
+  .menu-toggle { display: block; }
+  header { display: flex; align-items: center; }
+  nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 250px;
+    height: 100vh;
+    background: rgba(0,0,0,0.4); /* Match mobile nav transparency */
+    padding-top: 80px;
+    transition: left 0.3s ease;
+    z-index: 999;
+  }
+  nav ul {
+    display: block;
+    padding: 1rem;
+  }
+  nav ul li { margin: 0; }
+  nav ul li a { color: var(--light-text); font-size: 1rem; }
+
+  .language-switcher { position: absolute; right: 7rem; }
+
+  /* Technology two-column layout */
+  .technology-content { display: block; max-width: 800px; margin: 0 auto; }
+
+  /* Bigger thumbnails in Lobby */
+  .lobby-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  /* Apartments: side-by-side */
+  .apartment-details.active {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  .apartment-images { flex: 1; }
+  .apartment-info { flex: 1; }
+  .apartment-info ul { padding-left: 1rem; }
+}
+
+/* Default grid for apartment images */
+.apartment-images {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+}
+
+/* Превью всех квартир — одинаковая «карточка» 4 : 3 */
+.apartment-images img {
+  width: 100%;
+  aspect-ratio: 4 / 3; /*  пример 1024×768 */
+  object-fit: cover;   /* обрезаем лишнее, заполняя всю рамку */
+  border-radius: 5px;
+  display: block;
+  cursor: pointer;
 }

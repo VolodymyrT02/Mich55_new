@@ -1,0 +1,48 @@
+{
+  "translations": {},
+  "settings": {},
+  "media": [
+    {"filename": "Michurina1.JPEG", "path": "assets/images/facade/Michurina1.JPEG", "section": "hero_slider"},
+    {"filename": "Michurina2.JPEG", "path": "assets/images/facade/Michurina2.JPEG", "section": "hero_slider"},
+    {"filename": "Michurina3.JPEG", "path": "assets/images/facade/Michurina3.JPEG", "section": "hero_slider"},
+
+    {"filename": "1.JPEG", "path": "assets/images/lobby/1.JPEG", "section": "lobby_gallery"},
+    {"filename": "3.JPEG", "path": "assets/images/lobby/3.JPEG", "section": "lobby_gallery"},
+    {"filename": "4.JPEG", "path": "assets/images/lobby/4.JPEG", "section": "lobby_gallery"},
+    {"filename": "5.JPEG", "path": "assets/images/lobby/5.JPEG", "section": "lobby_gallery"},
+    {"filename": "6.JPEG", "path": "assets/images/lobby/6.JPEG", "section": "lobby_gallery"},
+    {"filename": "7.JPEG", "path": "assets/images/lobby/7.JPEG", "section": "lobby_gallery"},
+    {"filename": "8.JPEG", "path": "assets/images/lobby/8.JPEG", "section": "lobby_gallery"},
+    {"filename": "9.JPEG", "path": "assets/images/lobby/9.JPEG", "section": "lobby_gallery"},
+
+    {"filename": "apartment1.jpg", "path": "assets/images/apartments/1/apartment1.jpg", "section": "apartment_media", "apartment_id": 1},
+    {"filename": "apartment2.jpg", "path": "assets/images/apartments/2/apartment2.jpg", "section": "apartment_media", "apartment_id": 2},
+    {"filename": "apartment3.jpg", "path": "assets/images/apartments/3/apartment3.jpg", "section": "apartment_media", "apartment_id": 3},
+    {"filename": "10.JPEG", "path": "assets/images/apartments/1/10.JPEG", "section": "apartment_media", "apartment_id": 1},
+    {"filename": "11.JPEG", "path": "assets/images/apartments/1/11.JPEG", "section": "apartment_media", "apartment_id": 1},
+    {"filename": "12.JPEG", "path": "assets/images/apartments/1/12.JPEG", "section": "apartment_media", "apartment_id": 1},
+    {"filename": "IMG_0780.jpeg", "path": "assets/images/apartments/1/IMG_0780.jpeg", "section": "apartment_media", "apartment_id": 1},
+    {"filename": "IMG_0784.jpeg", "path": "assets/images/apartments/1/IMG_0784.jpeg", "section": "apartment_media", "apartment_id": 1},
+    {"filename": "IMG_0785.jpeg", "path": "assets/images/apartments/1/IMG_0785.jpeg", "section": "apartment_media", "apartment_id": 1},
+    {"filename": "IMG_0788.jpeg", "path": "assets/images/apartments/1/IMG_0788.jpeg", "section": "apartment_media", "apartment_id": 1},
+    {"filename": "10.JPEG", "path": "assets/images/apartments/2/10.JPEG", "section": "apartment_media", "apartment_id": 2},
+    {"filename": "11.JPEG", "path": "assets/images/apartments/2/11.JPEG", "section": "apartment_media", "apartment_id": 2},
+    {"filename": "12.JPEG", "path": "assets/images/apartments/2/12.JPEG", "section": "apartment_media", "apartment_id": 2},
+    {"filename": "IMG_0789.jpeg", "path": "assets/images/apartments/2/IMG_0789.jpeg", "section": "apartment_media", "apartment_id": 2},
+    {"filename": "IMG_0790.jpeg", "path": "assets/images/apartments/2/IMG_0790.jpeg", "section": "apartment_media", "apartment_id": 2},
+    {"filename": "IMG_0791.jpeg", "path": "assets/images/apartments/2/IMG_0791.jpeg", "section": "apartment_media", "apartment_id": 2},
+    {"filename": "IMG_0794.jpeg", "path": "assets/images/apartments/2/IMG_0794.jpeg", "section": "apartment_media", "apartment_id": 2},
+    {"filename": "10.JPEG", "path": "assets/images/apartments/3/10.JPEG", "section": "apartment_media", "apartment_id": 3},
+    {"filename": "11.JPEG", "path": "assets/images/apartments/3/11.JPEG", "section": "apartment_media", "apartment_id": 3},
+    {"filename": "12.JPEG", "path": "assets/images/apartments/3/12.JPEG", "section": "apartment_media", "apartment_id": 3},
+    {"filename": "IMG_0779.jpeg", "path": "assets/images/apartments/3/IMG_0779.jpeg", "section": "apartment_media", "apartment_id": 3},
+    {"filename": "IMG_0781.jpeg", "path": "assets/images/apartments/3/IMG_0781.jpeg", "section": "apartment_media", "apartment_id": 3},
+    {"filename": "IMG_0796.jpeg", "path": "assets/images/apartments/3/IMG_0796.jpeg", "section": "apartment_media", "apartment_id": 3},
+    {"filename": "apartment3_terrace.jpg", "path": "assets/images/apartments/3/apartment3_terrace.jpg", "section": "apartment_media", "apartment_id": 3}
+  ],
+  "apartments": [
+    {"id": 1, "name": "РЕЗИДЕНЦІЯ №1 (1-й поверх)", "name_uk": "РЕЗИДЕНЦІЯ №1 (1-й поверх)", "name_en": "RESIDENCE No.1 (Ground floor)", "status_uk": "Здано в експлуатацію лютий 2025р.", "status_en": "Commissioned February 2025", "legal_area_uk": "Юридична площа: 211,7 м²", "legal_area_en": "Legal area: 211.7 m²", "actual_area_uk": "Фактично: 189,5 м² внутрішня площа + 74 м² тераса з зеленою зоною", "actual_area_en": "Actual: 189.5 m² internal area + 74 m² terrace with green zone", "view_uk": "Вид: Києво-Печерська Лавра, Батьківщина-Мати", "view_en": "View: Kyiv Pechersk Lavra, Motherland Monument", "price_uk": "Вартість: 1 050 000 $", "price_en": "Price: $1,050,000", "included_uk": "Включено: 2 паркомісця + кладова", "included_en": "Included: 2 parking spaces + storage room"},
+    {"id": 2, "name": "РЕЗИДЕНЦІЯ №2 (2-й поверх)", "name_uk": "РЕЗИДЕНЦІЯ №2 (2-й поверх)", "name_en": "RESIDENCE No.2 (2nd floor)", "status_uk": "Здано в експлуатацію лютий 2025р.", "status_en": "Commissioned February 2025", "legal_area_uk": "Юридична площа: 237 м²", "legal_area_en": "Legal area: 237 m²", "actual_area_uk": "Фактично: 227 м² внутрішня площа + 33,3 м² тераса", "actual_area_en": "Actual: 227 m² internal area + 33.3 m² terrace", "view_uk": "Вид: Батьківщина-Мати, Києво-Печерська Лавра", "view_en": "View: Motherland Monument, Kyiv Pechersk Lavra", "price_uk": "Вартість: 1 150 000 $", "price_en": "Price: $1,150,000", "included_uk": "Включено: 2 паркомісця + кладова", "included_en": "Included: 2 parking spaces + storage room"},
+    {"id": 3, "name": "РЕЗИДЕНЦІЯ №3 (3-й поверх)", "name_uk": "РЕЗИДЕНЦІЯ №3 (3-й поверх)", "name_en": "RESIDENCE No.3 (3rd floor)", "status_uk": "Здано в експлуатацію лютий 2025р.", "status_en": "Commissioned February 2025", "legal_area_uk": "Юридична площа: 238,2 м²", "legal_area_en": "Legal area: 238.2 m²", "actual_area_uk": "Фактично: 204 м² внутрішня площа + 30 м² балкони + 84 м² панорамна тераса на покрівлі", "actual_area_en": "Actual: 204 m² internal area + 30 m² balconies + 84 m² panoramic rooftop terrace", "view_uk": "Вид: Ботанічний сад + панорама міста з покрівлі", "view_en": "View: Botanical Garden + city panorama from rooftop", "price_uk": "Вартість: 950 000 $", "price_en": "Price: $950,000", "included_uk": "Включено: 2 паркомісця + кладова", "included_en": "Included: 2 parking spaces + storage room"}
+  ]
+} 
