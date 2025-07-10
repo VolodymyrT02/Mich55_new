@@ -682,6 +682,17 @@ footer {
   }
 }
 
+/* --- Portrait Mobile Fix: reposition menu & language buttons --- */
+@media (max-width: 767px) and (orientation: portrait) {
+  .menu-toggle,
+  .language-switcher {
+    top: 2rem; /* смещение вниз ≈ высота кнопки переключения языка */
+  }
+  .language-switcher {
+    right: 1rem; /* уменьшаем расстояние от правого края */
+  }
+}
+
 /* -------------------------------------------------- */
 /*  Responsive Enhancements (2025-06)                 */
 /* -------------------------------------------------- */
